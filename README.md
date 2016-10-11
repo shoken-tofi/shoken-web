@@ -8,6 +8,11 @@ Install nodejs with npm included
 Install Grunt CLI and Bower:
 `npm install -g grunt-cli bower`
 
-Execute:
+Install NodeJS packages:
 `npm install`
+
+Install Bower packages:
+`bower install`
+
+Run server:
 `grunt serve`
