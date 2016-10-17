@@ -16,3 +16,7 @@ Install Bower packages:
 
 Run server:
 `grunt serve`
+
+#Deploy
+
+`git push heroku master`
