@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.header,
+.footer {
+  flex: none;
+}
+
+.footer {
+  height: auto;
+  max-height: 25%;
+  min-height: 5em;
+  background-color: #2B3A40;
+  padding: 2em 0;
+}
+
+.footer .footer-brand {
+  width: 100%;
+  float: right;
+  text-align: center;
+  font-size: 2em;
+  color: #607178;
+}
