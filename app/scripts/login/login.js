@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * # MainCtrl
+ * # LoginCtrl
  * Controller of the shokenWebApp
  */
 angular.module('shokenWebApp')
-  .controller('MainCtrl', function () {
+  .controller('LoginCtrl', function () {
   });
