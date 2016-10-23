@@ -5,13 +5,13 @@
  */
 angular.module('shokenWebApp')
   .factory('LoginService',
-    ['$http',
-      function ($http) {
+    ['$http', 'API',
+      function ($http, API) {
 
         var instance = {};
         instance.login = function (username, password, successCallback, errorCallback) {
           $http
-            .get('http://localhost:8080')
+            .get(API.url)
             .then(successCallback, errorCallback);
         };
 
