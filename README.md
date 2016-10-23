@@ -20,3 +20,6 @@ Run server:
 #Deploy
 
 `git push heroku master`
+
+# Install Allow-Control-Allow-Origin extension for Chrome
+# if get an error
