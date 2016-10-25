@@ -19,6 +19,11 @@ angular
             controller: 'LoginCtrl',
             controllerAs: 'login'
           })
+          .when('/bids', {
+            templateUrl: 'views/bid/list/bids-list.html',
+            controller: 'BidsListCtrl',
+            controllerAs: 'bidsList'
+          })
           .otherwise({
             redirectTo: '/'
           });
