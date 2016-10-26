@@ -5,6 +5,6 @@
  */
 angular
   .module('shokenWebApp')
-  .constant("API", {
-    "url": "http://localhost:8080"
+  .constant('API', {
+    'url': 'http://localhost:8080'
   });

@@ -19,6 +19,11 @@ angular
             controller: 'LoginCtrl',
             controllerAs: 'login'
           })
+          .when('/sign_up', {
+            templateUrl: 'views/sign_up/sign_up.html',
+            controller: 'RegistrationCtrl',
+            controllerAs: 'sign_up'
+          })
           .otherwise({
             redirectTo: '/'
           });
