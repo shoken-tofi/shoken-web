@@ -64,7 +64,11 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      }
+      },
+      css: {
+				files: '**/*.scss',
+				tasks: ['sass']
+			}
     },
 
     // The actual grunt server settings
@@ -423,9 +427,23 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+    pkg: grunt.file.readJSON('package.json'),
+		sass: {
+      dist: {
+        options: {
+          sourcemap: 'none'
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: ['**/*.scss'],
+          dest: '.tmp/styles/',
+          ext: '.css'
+        }]
+      }
+		}
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -436,7 +454,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
-      'postcss:server',
+      'sass:dist',
       'connect:livereload',
       'watch'
     ]);
@@ -480,4 +498,8 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.registerTask('default',['watch']);
 };
