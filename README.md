@@ -1,7 +1,8 @@
-# shoken-web
+# Shoken-web
 Great web client for shoken app
 
-#Installation
+# Installation
+Install ruby and gem  __bundler__. Then install ruby gems: `bundle`
 
 Install nodejs with npm included
 
@@ -17,9 +18,10 @@ Install Bower packages:
 Run server:
 `grunt serve`
 
-#Deploy
+# Deploy
+
+Check that Heroku server has ruby buildpack: `heroku buildpacks`. If there aren't add it: `heroku buildpacks:add --index 1 heroku/ruby`
 
 `git push heroku master`
 
-# Install Allow-Control-Allow-Origin extension for Chrome
-# if get an error
+#### Install Allow-Control-Allow-Origin extension for Chrome if get an error
