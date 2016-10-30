@@ -59,8 +59,11 @@ body {
 
         &:hover,
         &:focus {
-          color: $color-primary-1;
           background: $color-header-background;
+        }
+
+        &:hover {
+          color: $color-primary-1;
         }
       }
 
