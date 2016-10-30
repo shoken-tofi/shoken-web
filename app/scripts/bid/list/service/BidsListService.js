@@ -26,7 +26,7 @@ angular.module('shokenWebApp')
             "seller": {
               "id": "1",
               "fullname": "Alex Brown",
-              "rate": 150
+              "rate": 73
             }
           });
 
@@ -37,7 +37,7 @@ angular.module('shokenWebApp')
             "startPrice": 19.00,
             "startDate": "2016-10-23 15:00:00",
             "endDate": "2016-10-29 15:00:00",
-            "comment": "It's an awesome lot that will love to get!",
+            "comment": "It's an awesome bid that you will love to get!",
             "securityType": "share",
             "status": "progress",
             "paymentType": "paypal",
