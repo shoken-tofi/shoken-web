@@ -1,3 +1,9 @@
+@import "palette";
+
+body {
+  color: $color-primary-3;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -6,6 +12,7 @@
 
 .content {
   flex: 1 0 auto;
+
   &:after {
     content: '\00a0'; /* &nbsp; */
     display: block;
@@ -24,13 +31,51 @@
   height: auto;
   max-height: 25%;
   min-height: 5em;
-  background-color: #2B3A40;
+  background-color: $color-primary-3;
+  border-radius: 10px 10px 0 0;
   padding: 2em 0;
+
   .footer-brand {
     width: 100%;
     float: right;
     text-align: center;
     font-size: 2em;
-    color: #607178;
+    color: $color-primary-2;
+  }
+}
+
+.navbar {
+  background-color: $color-header-background;
+  border-color: $color-primary-1;
+  border-radius: 0 0 25px 25px;
+
+  .navbar-nav {
+    li {
+      a,
+      &.active a {
+        background-color: $color-header-background;
+        color: $color-primary-2;
+
+        &:hover,
+        &:focus {
+          color: $color-primary-1;
+          background: $color-header-background;
+        }
+      }
+
+      &.active {
+        a {
+          color: $color-primary-4;
+        }
+      }
+    }
+  }
+
+  .navbar-brand {
+    padding: 5px;
+
+    img {
+      max-height: 100%;
+    }
   }
 }
