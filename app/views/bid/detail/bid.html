@@ -1,0 +1,23 @@
+<section>
+  <div class="bid-block">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2>{{bid.name}} <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
+      <p>Start price <strong>{{bid.startPrice}}$</strong></p>
+      <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
+      <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
+      <div class="panel panel-default">
+        <p class="panel-body">{{bid.description}}</p>
+        <p class="panel-body">{{bid.comment}}</p>
+      </div>
+      <p>{{bid.paymentType}}</p>
+      <hr/>
+      <div>
+        <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+      </div>
+      <hr/>
+      <div>
+        <h3>Possible investors</h3>
+      </div>
+    </div>
+  </div>
+</section>

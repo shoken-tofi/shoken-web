@@ -1,20 +1,22 @@
-<h1>List of bids</h1>
-<div class="" ng-repeat="bid in bids">
-  <div class="col-md-12">
-    <div class="col-md-6">
-      <h2>{{bid.name}} <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
-      <p>Start price <strong>{{bid.startPrice}}$</strong></p>
-      <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
-      <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
-      <div class="panel panel-default">
-        <p class="panel-body">{{bid.comment}}</p>
+<section>
+  <h2>List of bids</h2>
+  <div class="" ng-repeat="bid in bids">
+    <div class="bid-block">
+      <div class="col-md-6">
+        <h2><a href="#/bid/{{bid.id}}">{{bid.name}}</a> <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
+        <p>Start price <strong>{{bid.startPrice}}$</strong></p>
+        <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
+        <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
+        <div class="panel panel-default">
+          <p class="panel-body">{{bid.comment}}</p>
+        </div>
+        <p>{{bid.paymentType}}</p>
+        <div>
+          <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+        </div>
       </div>
-      <p>{{bid.paymentType}}</p>
-      <div>
-        <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+      <div class="col-md-5 col-md-offset-1">
       </div>
-    </div>
-    <div class="col-md-5 col-md-offset-1">
     </div>
   </div>
-</div>
+</section>

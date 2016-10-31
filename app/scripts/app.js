@@ -7,7 +7,17 @@ angular
   .module('shokenWebApp', [
     'ngRoute'
   ])
+  // .config(['$locationProvider', function($locationProvider) {
+  //
+  //   //  For route handling: path/to/someparam
+  //   $locationProvider.html5Mode({
+  //     enabled: true,
+  //     requireBase: false
+  //   });
+  //
+  // }])
   .config(['$routeProvider', function ($routeProvider) {
+
         $routeProvider
           .when('/', {
             templateUrl: 'views/root/root.html',
@@ -27,8 +37,14 @@ angular
             controllerAs: 'bidsList',
             tab: 'bids'
           })
+          .when('/bid/:id', {
+            templateUrl: 'views/bid/detail/bid.html',
+            controller: 'BidCtrl',
+            controllerAs: 'bid',
+            tab: 'bid'
+          })
           .otherwise({
             redirectTo: '/'
           });
-      }])
-  .value('activeTab', '');
+
+      }]);
