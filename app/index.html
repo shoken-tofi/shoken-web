@@ -30,6 +30,7 @@
 
             <ul class="nav navbar-nav">
               <li ng-class="{active: isActive('login')}" ng-click="select('login')"><a ng-href="#/login">Login</a></li>
+              <li ng-class="{active: isActive('sign_up')}" ng-click="select('sign_up')"><a ng-href="#/sign_up">Sign up</a></li>
               <li ng-class="{active: isActive('bids')}" ng-click="select('bids')"><a ng-href="#/bids">Bids</a></li>
             </ul>
 
@@ -63,6 +64,10 @@
     <!-- Login -->
     <script src="scripts/login/controller/LoginCtrl.js"></script>
     <script src="scripts/login/service/LoginService.js"></script>
+
+    <!-- Registration -->
+    <script src="scripts/sign_up/controller/RegistrationCtrl.js"></script>
+    <script src="scripts/sign_up/service/RegistrationService.js"></script>
 
     <!-- Bid -->
     <script src="scripts/bid/list/controller/BidsListCtrl.js"></script>
