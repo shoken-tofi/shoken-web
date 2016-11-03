@@ -1,18 +1,18 @@
 <section>
   <div class="bid-block">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2>{{bid.name}} <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
-      <p>Start price <strong>{{bid.startPrice}}$</strong></p>
-      <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
-      <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
+      <h2>{{bidDetailed.name}} <span class="badge">{{bidDetailed.status}}</span> <span class="badge security-type">{{bidDetailed.securityType}}</span></h2>
+      <p>Start price <strong>{{bidDetailed.startPrice}}$</strong></p>
+      <p>Start: <span class="label label-default">{{bidDetailed.startDate}}</span></p>
+      <p>End: <span class="label label-primary">{{bidDetailed.endDate}}</span></p>
       <div class="panel panel-default">
-        <p class="panel-body">{{bid.description}}</p>
-        <p class="panel-body">{{bid.comment}}</p>
+        <p class="panel-body">{{bidDetailed.description}}</p>
+        <p class="panel-body">{{bidDetailed.comment}}</p>
       </div>
-      <p>{{bid.paymentType}}</p>
+      <p>{{bidDetailed.paymentType}}</p>
       <hr/>
       <div>
-        <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+        <h3>Seller {{bidDetailed.seller.fullname}} {{bidDetailed.seller.rate}}</h3>
       </div>
       <hr/>
       <div>

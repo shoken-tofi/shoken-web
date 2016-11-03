@@ -9,14 +9,12 @@ angular.module('shokenWebApp')
     ['$scope', '$routeParams', 'BidService',
       function ($scope, $routeParams, BidService) {
 
-        $scope.bid = {};
+        $scope.bidDetailed = {};
 
         var id = $routeParams.id;
 
         var getBidCallback = function (data) {
-          console.log(data);
-          $scope.bid = data;
-          console.log($scope.bid.name);
+          $scope.bidDetailed = data;
         };
 
         BidService.get(id, getBidCallback);
