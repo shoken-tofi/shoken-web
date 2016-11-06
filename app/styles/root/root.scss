@@ -1,8 +1,21 @@
 @import "palette";
+@import "variables";
 
 body {
-  color: $color-primary-3;
+  color: $color-primary-0;
   font-family: Verdana, Geneva, sans-serif;
+}
+
+h1, h2 {
+  color: $color-primary-4;
+}
+
+h3, h4 {
+  color: $color-primary-3;
+}
+
+h5, h6 {
+  color: $color-primary-0;
 }
 
 .wrapper {
@@ -33,8 +46,9 @@ body {
   max-height: 25%;
   min-height: 5em;
   background-color: $color-primary-3;
-  border-radius: 10px 10px 0 0;
+  border-radius: $radius-small $radius-small 0 0;
   padding: 2em 0;
+  margin-top: 1em;
 
   .footer-brand {
     width: 100%;
@@ -48,7 +62,7 @@ body {
 .navbar {
   background-color: $color-header-background;
   border-color: $color-primary-1;
-  border-radius: 0 0 25px 25px;
+  border-radius: 0 0 $radius-medium $radius-medium;
 
   .navbar-nav {
     li {
@@ -82,4 +96,60 @@ body {
       max-height: 100%;
     }
   }
+}
+
+.block-separated {
+  border-bottom: 2px solid $color-primary-1;
+}
+
+.panel-default {
+  border-color: $color-primary-2;
+  border-radius: 0 $radius-small $radius-small $radius-small;
+}
+
+.table {
+  color:$color-secondary-2-3;
+
+  thead {
+    tr {
+      th {
+        border-color: $color-secondary-2-0;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border-color: $color-secondary-2-0;
+      }
+    }
+  }
+
+  .bet-up {
+    &::before {
+      color: $color-primary-2;
+    }
+  }
+}
+
+.btn {
+  &.btn-bet {
+    background-color: $color-secondary-2-0;
+    color: $color-secondary-2-1;
+    border-color: $color-secondary-2-3;
+  }
+}
+
+.label {
+  &.label-default {
+    color: $color-secondary-1-3;
+    background-color: $color-secondary-1-2;
+  }
+}
+
+.badge {
+  background-color: $color-secondary-1-3;
+  color: $color-secondary-1-1;
+  border-radius: $radius-xsmall;
 }
