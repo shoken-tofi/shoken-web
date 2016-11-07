@@ -1,0 +1,17 @@
+<section>
+  <h2>List of users</h2>
+  <div class="col-xs-12 flexible">
+    <div ng-repeat="user in users" class="col-xs-12 col-sm-4">
+      <div class="block-separated inverse">
+        <h3>
+          <a href="#/user/{{user.id}}">{{user.username}} </a>
+          <span class="label danger" ng-show="{{user.banned}}">ban</span>
+        </h3>
+        <h6>
+          <span>{{user.email}}</span>
+          <span> | {{user.fullname}}</span>
+        </h6>
+      </div>
+    </div>
+  </div>
+</section>
