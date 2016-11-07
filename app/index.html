@@ -32,6 +32,7 @@
               <li ng-class="{active: isActive('login')}" ng-click="select('login')"><a ng-href="#/login">Login</a></li>
               <li ng-class="{active: isActive('sign_up')}" ng-click="select('sign_up')"><a ng-href="#/sign_up">Sign up</a></li>
               <li ng-class="{active: isActive('bids')}" ng-click="select('bids')"><a ng-href="#/bids">Bids</a></li>
+              <li ng-class="{active: isActive('users')}" ng-click="select('usres')"><a ng-href="#/users">Users</a></li>
             </ul>
 
           </div>
@@ -74,5 +75,10 @@
     <script src="scripts/bid/list/service/BidsListService.js"></script>
     <script src="scripts/bid/detail/controller/BidCtrl.js"></script>
     <script src="scripts/bid/detail/service/BidService.js"></script>
+
+    <!-- User -->
+    <script src="scripts/user/list/controller/UsersListCtrl.js"></script>
+    <script src="scripts/user/list/service/UsersListService.js"></script>
+
 </body>
 </html>

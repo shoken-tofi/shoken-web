@@ -48,6 +48,11 @@ angular
             controller: 'RegistrationCtrl',
             controllerAs: 'sign_up'
           })
+          .when('/users', {
+            templateUrl: 'views/user/list/users-list.html',
+            controller: 'UsersListCtrl',
+            controllerAs: 'usersList'
+          })
           .otherwise({
             redirectTo: '/'
           });
