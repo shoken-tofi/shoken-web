@@ -3,7 +3,15 @@
 .bid-block {
   background-color: $color-primary-1;
   margin-bottom: 20px;
-  margin-right: 20px;
   width: auto;
   float: left;
+  padding-bottom: 1em;
+}
+
+.btn {
+  &.btn-bet {
+    background-color: $color-secondary-2-0;
+    color: $color-secondary-2-1;
+    border-color: $color-secondary-2-3;
+  }
 }

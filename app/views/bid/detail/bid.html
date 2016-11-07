@@ -1,11 +1,13 @@
-<div class="col-xs-12">
+<div class="col-xs-12 bid-block">
   <h2>{{bidDetailed.name}}
     <button class="btn btn-default btn-bet">
       {{bidDetailed.currentBet}}$
       <span class="bet-up glyphicon glyphicon-chevron-up"></span>
     </button>
-    <span class="badge">{{bidDetailed.status}}</span>
-    <span class="badge">{{bidDetailed.securityType}}</span>
+    <a href="/#">
+      <span class="badge">{{bidDetailed.status}}</span></a>
+    <a href="/#">
+      <span class="badge">{{bidDetailed.securityType}}</span></a>
   </h2>
 
   <div class="col-xs-12 block-separated">
@@ -18,29 +20,32 @@
   </div>
 
   <div class="col-xs-12 block-separated">
-    <h3>Base information</h3>
-    <p>Start price
-      <strong>{{bidDetailed.startPrice}}$</strong>
-    </p>
-    <p>Start:
-      <span class="label label-default">{{bidDetailed.startDate}}</span>
-    </p>
-    <p>End:
-      <span class="label label-default">{{bidDetailed.endDate}}</span>
-    </p>
-    <p>Pay by: {{bidDetailed.paymentType}}</p>
-  </div>
-
-  <div class="col-xs-12 block-separated">
-    <h3>Seller</h3>
-    <h4>{{bidDetailed.seller.fullname}}
-      <p class="label label-default">{{bidDetailed.seller.rate}}</p>
-    </h4>
-    <div class="col-sm-2">
-      Seller's comment
+    <div class="col-xs-12 col-sm-5">
+      <h3>Base information</h3>
+      <p>Start price
+        <strong>{{bidDetailed.startPrice}}$</strong>
+      </p>
+      <p>Start:
+        <span class="label label-default">{{bidDetailed.startDate}}</span>
+      </p>
+      <p>End:
+        <span class="label label-default">{{bidDetailed.endDate}}</span>
+      </p>
+      <p>Pay by: {{bidDetailed.paymentType}}</p>
     </div>
-    <div class="panel panel-default col-sm-10">
-      <p class="panel-body">{{bidDetailed.comment}}</p>
+
+    <div class="col-xs-12 col-sm-7">
+      <h3>Seller</h3>
+      <h4>
+        <a href="/#">{{bidDetailed.seller.fullname}}</a>
+        <p class="label label-default">{{bidDetailed.seller.rate}}</p>
+      </h4>
+      <div class="col-sm-3">
+        Seller's comment
+      </div>
+      <div class="panel panel-default col-sm-9">
+        <p class="panel-body">{{bidDetailed.comment}}</p>
+      </div>
     </div>
   </div>
 
