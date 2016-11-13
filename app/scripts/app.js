@@ -46,7 +46,8 @@ angular
           .when('/sign_up', {
             templateUrl: 'views/sign_up/sign_up.html',
             controller: 'RegistrationCtrl',
-            controllerAs: 'sign_up'
+            controllerAs: 'sign_up',
+            tab: 'sign_up'
           })
           .when('/users', {
             templateUrl: 'views/user/list/users-list.html',

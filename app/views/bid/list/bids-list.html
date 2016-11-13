@@ -1,21 +1,136 @@
 <section>
   <h2>List of bids</h2>
-  <div class="" ng-repeat="bid in bids">
-    <div class="bid-block">
-      <div class="col-md-6">
-        <h2><a href="#/bid/{{bid.id}}">{{bid.name}}</a> <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
-        <p>Start price <strong>{{bid.startPrice}}$</strong></p>
-        <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
-        <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
-        <div class="panel panel-default">
-          <p class="panel-body">{{bid.comment}}</p>
-        </div>
-        <p>{{bid.paymentType}}</p>
-        <div>
-          <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+  <!-- filter sidebar -->
+  <div class="navbar navbar-default visible-xs">
+    <div class="container-fluid">
+      <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#filter-sidebar">
+        <i class="fa fa-tasks"></i> Toggle Filters
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div id="filter-sidebar" class="col-xs-6 col-sm-2 visible-sm visible-md visible-lg collapse sliding-sidebar">
+      <div>
+        <h4 data-toggle="collapse" data-target="#group-1">
+          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
+          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          Type
+        </h4>
+        <div id="group-1" class="list-group collapse in">
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            Stocks
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            Shares
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span>  -->
+            Bonds
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span>  -->
+            Bills
+          </a>
         </div>
       </div>
-      <div class="col-md-5 col-md-offset-1">
+
+      <div>
+        <h4 data-toggle="collapse" data-target="#group-2">
+          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
+          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          Status
+        </h4>
+        <div id="group-2" class="list-group collapse in">
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span>  -->
+            New (created in the last 24 hours)
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            Opened
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            Closed
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 data-toggle="collapse" data-target="#group-3">
+          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
+          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          Start price
+        </h4>
+        <div id="group-3" class="list-group collapse in">
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span>  -->
+            < 10$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            10$ - 30$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            30$ - 100$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            > 100$
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 data-toggle="collapse" data-target="#group-4">
+          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
+          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          Current rate
+        </h4>
+        <div id="group-4" class="list-group collapse in">
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span>  -->
+            < 10$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            10$ - 30$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            30$ - 100$
+          </a>
+          <a class="list-group-item" href="#">
+            <!-- <span class="badge">3</span> -->
+            > 100$
+          </a>
+        </div>
+      </div>
+    </div>
+  <!-- filter sidebar -->
+
+    <div class="col-md-10 bids">
+      <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in bids">
+        <div class="bid-block">
+          <div class="col-md-6">
+            <h2><a href="#/bid/{{bid.id}}">{{bid.name}}</a> <span class="badge">{{bid.status}}</span> <span class="badge security-type">{{bid.securityType}}</span></h2>
+            <p>Start price <strong>{{bid.startPrice}}$</strong></p>
+            <p>Start: <span class="label label-default">{{bid.startDate}}</span></p>
+            <p>End: <span class="label label-primary">{{bid.endDate}}</span></p>
+            <div class="panel panel-default">
+              <p class="panel-body">{{bid.comment}}</p>
+            </div>
+            <p>{{bid.paymentType}}</p>
+            <div>
+              <h3>Seller {{bid.seller.fullname}} {{bid.seller.rate}}</h3>
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+          </div>
+        </div>
       </div>
     </div>
   </div>
