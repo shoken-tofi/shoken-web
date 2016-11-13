@@ -14,3 +14,142 @@
     border-color: $color-secondary-2-3;
   }
 }
+
+.bids {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  .bid {
+    display: flex;
+    float: left;
+    background-color: $color-primary-1;
+    border: 5px solid white;
+  }
+}
+
+// site specific
+
+.container-fluid {
+  max-width: 960px;
+}
+
+// utility
+
+[data-toggle="collapse"] {
+  cursor: pointer;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.valign-middle {
+  vertical-align: middle !important;
+}
+
+// responsive table override
+
+// wrap responsive table in media query
+@media screen and (max-width: 767px) {
+
+  .table-responsive {
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    th,
+    td {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+
+    .align-center,
+    .align-right {
+      text-align: inherit;
+    }
+
+    tr {
+      border-top: 1px solid $rgba-secondary-1-2;
+
+      &:first-child {
+        border: 0;
+      }
+    }
+
+    // override bootstrap's styling
+    > tbody > tr > td {
+      padding-left: 50%;
+      border-top-color: $rgba-secondary-2-2;
+
+      &:first-child {
+        border: 0;
+      }
+    }
+
+    [data-label] {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 8px;
+        content: attr(data-label);
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  // a little tweaking
+
+  .navbar-fixed-top.visible-xs + .row {
+    padding-top: 60px; // height plus padding
+  }
+
+  .btn .visible-xs {
+    display: inline-block !important;
+  }
+
+  .sliding-sidebar {
+    position: absolute;
+    z-index: 1;
+    background: $rgba-secondary-1-1;
+    min-height: 100%;
+    border-right: 1px solid $rgba-secondary-1-2;
+
+    &.collapse,
+    &.collapsing {
+      display: block !important;
+      transform: translate3D(-100%, 0, 0);
+      transition: all 200ms;
+    }
+
+    &.collapse.in {
+      transform: translate3D(0, 0, 0);
+    }
+  }
+}
+
+.parent-collapsed {
+  display: none;
+}
+
+.collapsed {
+  .parent-expanded {
+    display: none;
+  }
+
+  .parent-collapsed {
+    display: inline-block;
+  }
+}
