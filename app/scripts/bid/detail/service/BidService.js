@@ -14,22 +14,24 @@ angular.module('shokenWebApp')
 
           var bid = {
             "id": "1",
-            "name": "Bid1",
+            "title": "Bid1WithVeryLongLongLongTitle",
             "description": "High profit bid of type bond.",
             "quantity": 1,
-            "startPrice": 11.20,
-            "currentBet": 14.55,
-            "startDate": "2016-10-28 19:00:00",
-            "endDate": "2016-10-30 19:00:00",
+            "price": 14.55,
+            "timeLeft": {
+              hours: 28,
+              minutes: 12,
+              seconds: 10
+            },
             "comment": "It's a great bid that will bring you a lot of luck! Click to bet!",
-            "securityType": "bond",
+            "type": "bond",
             "status": "new",
             "paymentType": "paypal",
             "seller": {
               "id": "1",
-              "fullname": "Alex Brown",
-              "rate": 73
+              "username": "AlexBrown"
             },
+            "imageUrl": "http://placehold.it/150x150",
             "investors": [
               {
                 "name": "carmen lol11",
