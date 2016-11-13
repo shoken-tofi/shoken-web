@@ -101,6 +101,7 @@ h5, h6 {
 
 .block-separated {
   border-bottom: 2px solid $color-secondary-2-1;
+  margin-bottom: 1em;
 
   &.inverse {
     border-color: $color-primary-1;
@@ -167,4 +168,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

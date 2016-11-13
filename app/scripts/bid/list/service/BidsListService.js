@@ -14,38 +14,40 @@ angular.module('shokenWebApp')
           var bids = [];
           bids.push({
             "id": "1",
-            "name": "Bid1",
+            "title": "Bid1WithVeryLongLongLongTitle",
             "quantity": 1,
-            "startPrice": 11.20,
-            "startDate": "2016-10-28 19:00:00",
-            "endDate": "2016-10-30 19:00:00",
-            "comment": "It's a great bid that will bring you a lot of luck! Click to bet!",
-            "securityType": "bond",
-            "status": "new",
+            "price": 11.20,
+            "timeLeft": {
+              hours: 28,
+              minutes: 12,
+              seconds: 10
+            },
+            "type": "bond",
             "paymentType": "paypal",
             "seller": {
               "id": "1",
-              "fullname": "Alex Brown",
-              "rate": 73
-            }
+              "username": "AlexBrown"
+            },
+            "imageUrl": "http://placehold.it/150x150"
           });
 
           bids.push({
             "id": "2",
-            "name": "Bid2",
+            "title": "Bid2 With Multiple Words In Title",
             "quantity": 1,
-            "startPrice": 19.00,
-            "startDate": "2016-10-23 15:00:00",
-            "endDate": "2016-10-29 15:00:00",
-            "comment": "It's an awesome bid that you will love to get!",
-            "securityType": "share",
-            "status": "progress",
+            "price": 19.00,
+            "timeLeft": {
+              hours: 13,
+              minutes: 1,
+              seconds: 8
+            },
+            "type": "share",
             "paymentType": "paypal",
             "seller": {
               "id": "2",
-              "fullname": "Mik Taylor",
-              "rate": 17
-            }
+              "username": "MikTaylor"
+            },
+            "imageUrl": "http://placehold.it/150x150"
           });
 
           successCallback(bids);

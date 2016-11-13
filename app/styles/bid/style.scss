@@ -5,6 +5,10 @@
   margin-bottom: 20px;
   float: left;
   padding-bottom: 1em;
+
+  .detail-img {
+    margin: 1em 0;
+  }
 }
 
 .btn {
@@ -21,7 +25,6 @@
   overflow: hidden;
 
   .bid {
-    display: flex;
     float: left;
     background-color: $color-primary-1;
     border: 5px solid white;
