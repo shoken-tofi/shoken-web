@@ -10,11 +10,42 @@ angular.module('shokenWebApp')
       function ($scope, $routeParams, BidService) {
 
         $scope.bidDetailed = {};
+        $scope.bet = {};
+        $scope.betManagement = {};
+
+        var up = function (up) {
+          if(!up && $scope.betManagement.delta <= $scope.betManagement.step) {
+            return;
+          }
+
+          $scope.betManagement.delta += up ? $scope.betManagement.step
+            : -$scope.betManagement.step;
+          $scope.betManagement.delta = parseFloat($scope.betManagement.delta.toFixed(2));
+
+          $scope.bet.value = $scope.bidDetailed.price.value;
+          $scope.bet.value += up ? $scope.betManagement.delta
+            : -$scope.betManagement.delta;
+          $scope.bet.value = parseFloat($scope.bet.value.toFixed(2));
+        };
+
+        $scope.up = up;
+
+        var betForBid = function () {
+          console.log("bet");
+          BidService.bet($scope.bet);
+        };
+
+        $scope.betForBid = betForBid;
 
         var id = $routeParams.id;
 
         var getBidCallback = function (data) {
           $scope.bidDetailed = data;
+
+          $scope.betManagement.step = $scope.bidDetailed.price.step;
+          $scope.betManagement.delta = $scope.betManagement.step;
+
+          $scope.bet.value = $scope.bidDetailed.price.value;
         };
 
         BidService.get(id, getBidCallback);

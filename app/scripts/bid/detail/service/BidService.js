@@ -17,7 +17,10 @@ angular.module('shokenWebApp')
             "title": "Bid1WithVeryLongLongLongTitle",
             "description": "High profit bid of type bond.",
             "quantity": 1,
-            "price": 14.55,
+            "price": {
+              "value": 14.55,
+              "step": 0.70
+            },
             "timeLeft": {
               hours: 28,
               minutes: 12,
@@ -57,6 +60,17 @@ angular.module('shokenWebApp')
           };
 
           successCallback(bid);
+        };
+
+        instance.bet = function (bet, successCallback, errorCallback) {
+
+          // Call the service
+
+          console.log(bet);
+
+          if(successCallback) {
+            successCallback();
+          }
         };
 
         return instance;

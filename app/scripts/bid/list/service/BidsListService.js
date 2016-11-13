@@ -16,7 +16,10 @@ angular.module('shokenWebApp')
             "id": "1",
             "title": "Bid1WithVeryLongLongLongTitle",
             "quantity": 1,
-            "price": 11.20,
+            "price": {
+              "value": 11.20,
+              "step": 0.56
+            },
             "timeLeft": {
               hours: 28,
               minutes: 12,
@@ -35,7 +38,10 @@ angular.module('shokenWebApp')
             "id": "2",
             "title": "Bid2 With Multiple Words In Title",
             "quantity": 1,
-            "price": 19.00,
+            "price": {
+              "value": 19.00,
+              "step": 0.95
+            },
             "timeLeft": {
               hours: 13,
               minutes: 1,

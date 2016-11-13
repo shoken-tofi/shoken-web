@@ -19,6 +19,17 @@
           <p class="panel-body">{{bidDetailed.description}}</p>
         </div>
       </div>
+
+      <div class="col-xs-12">
+        <h3>Bet</h3>
+        <form>
+          <button class="btn btn-default" ng-click="up(false)">-</button>
+          <span>{{betManagement.delta}}</span>
+          <button class="btn btn-default" ng-click="up(true)">+</button>
+          <p>Total: {{bet.value}}</p>
+          <button class="btn btn-default" ng-click="betForBid()">bet</button>
+        </form>
+      </div>
     </div>
   </div>
 
