@@ -31,7 +31,9 @@ angular.module('shokenWebApp')
         $scope.up = up;
 
         var betForBid = function () {
-          console.log("bet");
+          // value
+          // investorId
+          // bidId
           BidService.bet($scope.bet);
         };
 

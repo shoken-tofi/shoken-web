@@ -13,29 +13,29 @@ angular.module('shokenWebApp')
         instance.get = function (id, successCallback, errorCallback) {
 
           var bid = {
-            "id": "1",
+            "id": "1",//
             "title": "Bid1WithVeryLongLongLongTitle",
             "description": "High profit bid of type bond.",
             "quantity": 1,
-            "price": {
+            "price": {//startPrice
               "value": 14.55,
               "step": 0.70
             },
-            "timeLeft": {
+            "timeLeft": {//
               hours: 28,
               minutes: 12,
               seconds: 10
             },
             "comment": "It's a great bid that will bring you a lot of luck! Click to bet!",
             "type": "bond",
-            "status": "new",
+            "status": "new",//
             "paymentType": "paypal",
-            "seller": {
+            "seller": {//sellerId
               "id": "1",
               "username": "AlexBrown"
             },
-            "imageUrl": "http://placehold.it/150x150",
-            "investors": [
+            "imageUrl": "http://placehold.it/150x150",//nothing
+            "investors": [//
               {
                 "name": "carmen lol11",
                 "betDate": "2016-10-28 22:03:05",
@@ -65,8 +65,6 @@ angular.module('shokenWebApp')
         instance.bet = function (bet, successCallback, errorCallback) {
 
           // Call the service
-
-          console.log(bet);
 
           if(successCallback) {
             successCallback();
