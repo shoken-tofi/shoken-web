@@ -1,0 +1,44 @@
+<h2>Your seller profile</h2>
+<ul class="nav nav-tabs">
+  <li ng-class="{active: isActive('active', 1)}" ng-click="select('active', 1)"><a ng-href="#/seller/active">Active</a></li>
+  <li ng-class="{active: isActive('completed', 1)}" ng-click="select('completed', 1)"><a ng-href="#/seller/completed">Completed</a></li>
+  <li ng-class="{active: isActive('billing', 1)}" ng-click="select('billing', 1)"><a ng-href="#/seller/billing">Billing</a></li>
+  <li ng-class="{active: isActive('deleted', 1)}" ng-click="select('deleted', 1)"><a ng-href="#/seller/deleted">Deleted</a></li>
+  <li ng-class="{active: isActive('canceled', 1)}" ng-click="select('canceled', 1)"><a ng-href="#/seller/deleted">Canceled</a></li>
+</ul>
+<form class="col-xs-12 bids" ng-controller="BidDeleteCtrl">
+  <div class="col-sm-10 col-sm-offset-1 block-separated inverse">
+    <button class="btn btn-sm btn-default pull-right" ng-show="!deleteMode" ng-click="deleteModeOn()">Delete mode</button>
+    <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
+    <input type="reset" class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="reset()">
+  </div>
+  <div class="col-sm-10 col-sm-offset-1 bid" ng-repeat="bid in bids">
+
+    <div class="col-sm-1" ng-show="deleteMode">
+      <input type="checkbox" class="input-lg" ng-click="toggleCheckbox(bid.id)">
+    </div>
+
+    <div class="col-sm-10">
+      <h2><a href="#/bid/{{bid.id}}">{{bid.title}}</a>
+      </h2>
+    </div>
+    <h5>
+      <span class="badge">{{bid.type}}</span>
+    </h5>
+    <div class="col-xs-12 block-separated">
+      <p>
+          {{bid.price.value}}$
+      </p>
+    </div>
+    <br />
+    <div class="col-md-6">
+      <p>Time left: <span class="label label-default">{{bid.timeLeft.hours}}h {{bid.timeLeft.minutes}}min {{bid.timeLeft.seconds}}s</span></p>
+      <p>{{bid.paymentType}}</p>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <p>
+        <img class="img-thumbnail" src="{{bid.imageUrl}}" alt="{{bid.title}}">
+      </p>
+    </div>
+  </div>
+</form>

@@ -10,8 +10,8 @@ angular.module('shokenWebApp')
       function ($scope, $uibModal, BidsListService, BetService, $location) {
 
         $scope.bids = [];
-        $scope.deleteMode = false;
-        var idsToDelete = [];
+        // $scope.deleteMode = false;
+        // var idsToDelete = [];
 
         var modalInstance;
 
@@ -35,37 +35,37 @@ angular.module('shokenWebApp')
 
         $scope.bet = open;
 
-        $scope.deleteModeOn = function () {
-          $scope.deleteMode = true;
-        };
-
-        $scope.reset = function () {
-          $scope.deleteMode = false;
-          idsToDelete = [];
-        };
-
-        $scope.toggleCheckbox = function(bidId) {
-          var index = idsToDelete.indexOf(bidId);
-          index > -1 ?
-            idsToDelete.splice(index, 1)
-            :
-            idsToDelete.push(bidId);
-
-          console.log(idsToDelete);
-        };
-
-        $scope.delete = function () {
-          if(idsToDelete) {
-            BidsListService.delete(
-              idsToDelete,
-              function () {
-                $location.path("/bids");
-              }
-            );
-          }
-
-          $scope.reset();
-        };
+        // $scope.deleteModeOn = function () {
+        //   $scope.deleteMode = true;
+        // };
+        //
+        // $scope.reset = function () {
+        //   $scope.deleteMode = false;
+        //   idsToDelete = [];
+        // };
+        //
+        // $scope.toggleCheckbox = function(bidId) {
+        //   var index = idsToDelete.indexOf(bidId);
+        //   index > -1 ?
+        //     idsToDelete.splice(index, 1)
+        //     :
+        //     idsToDelete.push(bidId);
+        //
+        //   console.log(idsToDelete);
+        // };
+        //
+        // $scope.delete = function () {
+        //   if(idsToDelete) {
+        //     BidsListService.delete(
+        //       idsToDelete,
+        //       function () {
+        //         $location.path("/bids");
+        //       }
+        //     );
+        //   }
+        //
+        //   $scope.reset();
+        // };
 
         var getListCallback = function (data) {
           $scope.bids = data;
