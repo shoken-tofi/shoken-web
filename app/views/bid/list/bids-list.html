@@ -112,11 +112,19 @@
     </div>
   <!-- filter sidebar -->
 
-    <div class="col-md-10 bids">
+    <form class="col-md-10 bids">
       <div class="col-xs-12 block-separated inverse">
         <a class="btn btn-sm btn-default pull-right" href="#/bid/new">New</a>
+        <button class="btn btn-sm btn-default pull-right" ng-show="!deleteMode" ng-click="deleteModeOn()">Delete mode</button>
+        <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
+        <input type="reset" class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="reset()">
       </div>
       <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in bids">
+
+        <div class="col-sm-1" ng-show="deleteMode">
+          <input type="checkbox" class="input-lg" ng-click="toggleCheckbox(bid.id)">
+        </div>
+
         <div class="col-sm-10">
           <h2 class="truncate"><a href="#/bid/{{bid.id}}">{{bid.title}}</a>
           </h2>
@@ -146,6 +154,6 @@
           </p>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </section>

@@ -59,6 +59,16 @@ angular.module('shokenWebApp')
           successCallback(bids);
         };
 
+        instance.delete = function (idsToDelete, successCallback, errorCallback) {
+          //  TODO: delete using remote service
+
+          console.log("deleting " + JSON.stringify(idsToDelete));
+
+          if(successCallback) {
+            successCallback();
+          }
+        };
+
         return instance;
 
       }]);
