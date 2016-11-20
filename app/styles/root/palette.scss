@@ -26,6 +26,12 @@ $color-secondary-2-4: #491515;
 
 $color-header-background: transparent;
 
+$input-border: $color-primary-2;
+$focus-input-border: $color-primary-0;
+$rgba-input-shadow: rgba( 80,102,111,.6);	// Main Primary color */
+$rgba-input-border-shadow: rgba(137,150,156,.075);
+
+
 // As RGBa codes */
 
 $rgba-primary-0: rgba( 80,102,111,1);	// Main Primary color */

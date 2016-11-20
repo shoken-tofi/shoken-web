@@ -11,10 +11,11 @@ angular.module('shokenWebApp')
         var instance = {};
 
         instance.save = function (newBid, successCallback, errorCallback) {
-
           //  TODO: service call for save
 
-          successCallback();
+          if(successCallback) {
+            successCallback();
+          }
         };
 
         return instance;
