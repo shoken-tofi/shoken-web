@@ -6,18 +6,20 @@
  */
 angular.module('shokenWebApp')
   .controller('BidsListCtrl',
-    ['$scope', '$uibModal', 'BidsListService',
-      function ($scope, $uibModal, BidsListService) {
+    ['$scope', '$uibModal', 'BidsListService', 'BetService',
+      function ($scope, $uibModal, BidsListService, BetService) {
 
         $scope.bids = [];
 
         var modalInstance;
 
-        $scope.open = function () {
+        $scope.open = function (step, value, bidId, investorId) {
+          BetService.setBetManagement(step, value, bidId, investorId);
 
           modalInstance = $uibModal.open({
+            size: 'sm',
             templateUrl: 'views/bid/list/modal/bet-modal.html',
-            controller: ModalInstanceCtrl,
+            controller: 'BetModalCtrl',
             resolve: {
             }
           });
@@ -39,14 +41,3 @@ angular.module('shokenWebApp')
         BidsListService.getList(getListCallback);
 
       }]);
-
-var ModalInstanceCtrl = function ($scope, $uibModalInstance) {
-
-  $scope.ok = function () {
-    $uibModalInstance.close();
-  };
-
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-};
