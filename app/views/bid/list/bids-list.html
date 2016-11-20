@@ -113,6 +113,9 @@
   <!-- filter sidebar -->
 
     <div class="col-md-10 bids">
+      <div class="col-xs-12 block-separated inverse">
+        <a class="btn btn-sm btn-default pull-right" href="#/bid/new">New</a>
+      </div>
       <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in bids">
         <div class="col-sm-10">
           <h2 class="truncate"><a href="#/bid/{{bid.id}}">{{bid.title}}</a>

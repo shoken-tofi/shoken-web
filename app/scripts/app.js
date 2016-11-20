@@ -38,11 +38,17 @@ angular
             controllerAs: 'bidsList',
             tab: 'bids'
           })
+          .when('/bid/new', {
+            templateUrl: 'views/bid/create/bid-create.html',
+            controller: 'BidCreateCtrl',
+            controllerAs: 'bidCreate',
+            tab: 'bids'
+          })
           .when('/bid/:id', {
             templateUrl: 'views/bid/detail/bid.html',
             controller: 'BidCtrl',
             controllerAs: 'bid',
-            tab: 'bid'
+            tab: 'bids'
           })
           .when('/sign_up', {
             templateUrl: 'views/sign_up/sign_up.html',
