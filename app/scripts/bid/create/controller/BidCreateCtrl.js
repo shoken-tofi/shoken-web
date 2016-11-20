@@ -25,6 +25,7 @@ angular.module('shokenWebApp')
 
         var save = function () {
           console.log("Saving bid..");
+          console.log($scope.newBid);
           BidCreateService.save($scope.newBid, success, error);
         };
 

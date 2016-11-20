@@ -41,11 +41,27 @@
           <input id="bidStartPrice" type="number" min="0" step="0.01" class="form-control" ng-model="newBid.startPrice">
         </div>
       </div>
+      <div class="form-group">
+        <label for="bidExpirationDate" class="control-label col-sm-4">Expiration date</label>
+        <div class="col-sm-6">
+          <input id="bidExpirationDate" type="datetime" class="form-control" ng-model="newBid.expirationDate">
+        </div>
+      </div>
     </div>
 
     <div class="col-xs-12 block-separated">
       <h3>Secondary information</h3>
       <br />
+      <div class="form-group">
+        <label for="bidStep" class="control-label col-sm-4">Step percent</label>
+        <div class="col-sm-6">
+          <select id="bidStep" class="form-control" ng-model="newBid.step">
+            <option value="3">3%</option>
+            <option value="5">5%</option>
+            <option value="10">10%</option>
+          </select>
+        </div>
+      </div>
       <div class="form-group">
         <label for="bidComment" class="control-label col-sm-4">Comment</label>
         <div class="col-sm-6">
