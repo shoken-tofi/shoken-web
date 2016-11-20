@@ -5,7 +5,8 @@
  */
 angular
   .module('shokenWebApp', [
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap'
   ])
   // .config(['$locationProvider', function($locationProvider) {
   //
