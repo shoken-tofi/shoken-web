@@ -6,14 +6,16 @@
  */
 angular.module('shokenWebApp')
   .controller('BidsListCtrl',
-    ['$scope', '$uibModal', 'BidsListService', 'BetService',
-      function ($scope, $uibModal, BidsListService, BetService) {
+    ['$scope', '$uibModal', 'BidsListService', 'BetService', '$location',
+      function ($scope, $uibModal, BidsListService, BetService, $location) {
 
         $scope.bids = [];
+        $scope.deleteMode = false;
+        var idsToDelete = [];
 
         var modalInstance;
 
-        $scope.open = function (step, value, bidId, investorId) {
+        var open = function (step, value, bidId, investorId) {
           BetService.setBetManagement(step, value, bidId, investorId);
 
           modalInstance = $uibModal.open({
@@ -33,6 +35,38 @@ angular.module('shokenWebApp')
         };
 
         $scope.bet = $scope.open;
+
+        $scope.deleteModeOn = function () {
+          $scope.deleteMode = true;
+        };
+
+        $scope.reset = function () {
+          $scope.deleteMode = false;
+          idsToDelete = [];
+        };
+
+        $scope.toggleCheckbox = function(bidId) {
+          var index = idsToDelete.indexOf(bidId);
+          index > -1 ?
+            idsToDelete.splice(index, 1)
+            :
+            idsToDelete.push(bidId);
+
+          console.log(idsToDelete);
+        };
+
+        $scope.delete = function () {
+          if(idsToDelete) {
+            BidsListService.delete(
+              idsToDelete,
+              function () {
+                $location.path("/bids");
+              }
+            );
+          }
+
+          $scope.reset();
+        };
 
         var getListCallback = function (data) {
           $scope.bids = data;
