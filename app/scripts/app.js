@@ -59,7 +59,32 @@ angular
           .when('/users', {
             templateUrl: 'views/user/list/users-list.html',
             controller: 'UsersListCtrl',
-            controllerAs: 'usersList'
+            controllerAs: 'usersList',
+            tab: 'users'
+          })
+          .when('/seller', {
+            templateUrl: 'views/profile/seller/seller-profile.html',
+            controller: 'SellerProfileCtrl',
+            controllerAs: 'sellerProfile',
+            tab: 'seller'
+          })
+          .when('/seller/:tab', {
+            templateUrl: 'views/profile/seller/seller-profile.html',
+            controller: 'SellerProfileCtrl',
+            controllerAs: 'sellerProfile',
+            tab: 'seller'
+          })
+          .when('/investor', {
+            templateUrl: 'views/profile/investor/investor-profile.html',
+            controller: 'InvestorProfileCtrl',
+            controllerAs: 'investorProfile',
+            tab: 'investor'
+          })
+          .when('/investor/:tab', {
+            templateUrl: 'views/profile/investor/investor-profile.html',
+            controller: 'InvestorProfileCtrl',
+            controllerAs: 'investorProfile',
+            tab: 'investor'
           })
           .otherwise({
             redirectTo: '/'

@@ -8,21 +8,27 @@ angular.module('shokenWebApp')
   .controller('TabsCtrl',
     ['$scope',
     function ($scope) {
-      var activeTab;
+      var defaultLevel = 0;
+      var activeTabs = {};
 
-      var isActive = function (tab) {
+      var isActive = function (tab, level) {
+        level = level ? level : defaultLevel;
+
+        var activeTab = activeTabs[level];
         if (!tab || !activeTab) {
           return false;
         }
         return tab === activeTab;
       };
 
-      var select = function (tab) {
+      var select = function (tab, level) {
+        level = level ? level : defaultLevel;
+
         if (!tab) {
-          activeTab = '';
+          activeTabs[level] = '';
           return;
         }
-        activeTab = tab;
+        activeTabs[level] = tab;
       };
 
       $scope.isActive = isActive;
