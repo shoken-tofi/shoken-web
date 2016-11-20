@@ -17,7 +17,6 @@ angular.module('shokenWebApp')
 
         var open = function (step, value, bidId, investorId) {
           BetService.setBetManagement(step, value, bidId, investorId);
-
           modalInstance = $uibModal.open({
             size: 'sm',
             templateUrl: 'views/bid/list/modal/bet-modal.html',
@@ -34,7 +33,7 @@ angular.module('shokenWebApp')
             });
         };
 
-        $scope.bet = $scope.open;
+        $scope.bet = open;
 
         $scope.deleteModeOn = function () {
           $scope.deleteMode = true;
