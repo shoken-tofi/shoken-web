@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('BidCtrl',
-    ['$scope', '$routeParams', 'BidService',
-      function ($scope, $routeParams, BidService) {
+    ['$scope', '$routeParams', 'BidService', 'BetService',
+      function ($scope, $routeParams, BidService, BetService) {
 
         $scope.bidDetailed = {};
         $scope.bet = {};
@@ -42,10 +42,11 @@ angular.module('shokenWebApp')
         var getBidCallback = function (data) {
           $scope.bidDetailed = data;
 
-          $scope.betManagement.step = $scope.bidDetailed.price.step;
-          $scope.betManagement.delta = $scope.betManagement.step;
-
-          $scope.bet.value = $scope.bidDetailed.price.value;
+          BetService.setBetManagement(
+            $scope.bidDetailed.price.step,
+            $scope.bidDetailed.price.value,
+            $scope.bidDetailed.id,
+            333);
         };
 
         BidService.get(id, getBidCallback);
