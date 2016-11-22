@@ -18,5 +18,7 @@ angular.module('shokenWebApp')
           $scope.bids = bids;
         };
 
-        BidsListService.getList(getBidsListCallback);
+        if(tab) {
+          BidsListService.getList(getBidsListCallback);
+        }
       }]);
