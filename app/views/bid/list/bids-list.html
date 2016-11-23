@@ -119,8 +119,7 @@
         <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
         <input type="reset" class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="reset()">
       </div>
-      <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in bids">
-
+      <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in filteredBids">
         <div class="col-sm-1" ng-show="deleteMode">
           <input type="checkbox" class="input-lg" ng-click="toggleCheckbox(bid.id)">
         </div>
@@ -155,5 +154,6 @@
         </div>
       </div>
     </form>
+    <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></ul>
   </div>
 </section>
