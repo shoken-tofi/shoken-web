@@ -8,10 +8,15 @@ angular.module('shokenWebApp')
   .controller('BidsListCtrl',
     ['$scope', '$uibModal', 'BidsListService', 'BetService', '$location',
       function ($scope, $uibModal, BidsListService, BetService, $location) {
-
         $scope.bids = [];
-        // $scope.deleteMode = false;
-        // var idsToDelete = [];
+        $scope.filteredBids = [];
+
+        $scope.itemsPerPage = 10;
+        $scope.currentPage = 1;
+
+        $scope.setPage = function (pageNo) {
+          $scope.currentPage = pageNo;
+        };
 
         var modalInstance;
 
@@ -35,41 +40,17 @@ angular.module('shokenWebApp')
 
         $scope.bet = open;
 
-        // $scope.deleteModeOn = function () {
-        //   $scope.deleteMode = true;
-        // };
-        //
-        // $scope.reset = function () {
-        //   $scope.deleteMode = false;
-        //   idsToDelete = [];
-        // };
-        //
-        // $scope.toggleCheckbox = function(bidId) {
-        //   var index = idsToDelete.indexOf(bidId);
-        //   index > -1 ?
-        //     idsToDelete.splice(index, 1)
-        //     :
-        //     idsToDelete.push(bidId);
-        //
-        //   console.log(idsToDelete);
-        // };
-        //
-        // $scope.delete = function () {
-        //   if(idsToDelete) {
-        //     BidsListService.delete(
-        //       idsToDelete,
-        //       function () {
-        //         $location.path("/bids");
-        //       }
-        //     );
-        //   }
-        //
-        //   $scope.reset();
-        // };
-
         var getListCallback = function (data) {
           $scope.bids = data;
+          $scope.totalItems = data.length;
         };
+
+        $scope.$watch("currentPage + itemsPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+              end   = begin + $scope.itemsPerPage;
+
+          $scope.filteredBids = $scope.bids.slice(begin, end);
+        });
 
         BidsListService.getList(getListCallback);
 
