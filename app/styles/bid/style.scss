@@ -9,6 +9,10 @@
 
   .detail-img {
     margin: 1em 0;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 
   .bid-title {
@@ -79,7 +83,7 @@
 // responsive table override
 
 // wrap responsive table in media query
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $screen-xs-max) {
 
   .table-responsive {
 
@@ -183,6 +187,7 @@
   border-radius: $radius-small;
   border: 1px solid $color-secondary-2-0;
   padding: $padding-small;
+  text-align: center;
 
   .total-block {
     padding: $padding-small 0;
