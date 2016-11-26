@@ -8,6 +8,12 @@ angular
     'ngRoute',
     'ui.bootstrap'
   ])
+  .config(['$httpProvider', function($httpProvider) {
+
+    //  Fix 'Access-Control-Allow-Origin' header
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }])
   // .config(['$locationProvider', function($locationProvider) {
   //
   //   //  For route handling: path/to/someparam
