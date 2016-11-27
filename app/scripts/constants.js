@@ -10,5 +10,6 @@ angular
   .module('shokenWebApp')
   .constant('BACKEND_URL', backendUrl)
   .constant('API', {
-    'bids': backendUrl + '/bids'
+    'bids': backendUrl + '/bids',
+    'register': backendUrl + '/register'
   });

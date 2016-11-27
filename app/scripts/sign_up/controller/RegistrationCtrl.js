@@ -61,6 +61,14 @@ debugger;
           return usernameValid && emailValid && passwordValid;
         };
 
+        var success = function (response) {
+          console.log('Sign up successeed' + JSON.stringify(response.data));
+        };
+
+        var error = function (response) {
+          console.log('Sign up failed. ' + (response.statusText || ''));
+        };
+
         var submit = function () {
           if(!valid()) {
             console.log('Error in sign up form');
@@ -71,13 +79,8 @@ debugger;
             $scope.form.username,
             $scope.form.email,
             $scope.form.password,
-            $scope.form.password_confirmation,
-            function (response) {
-              console.log('Sign up successeed' + JSON.stringify(response.data));
-            },
-            function (response) {
-              console.log('Sign up failed. ' + (response.data || ''));
-            });
+            success,
+            error);
         };
 
         $scope.submit = submit;
