@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('BidsListCtrl',
-    ['$scope', '$uibModal', 'BidsListService', 'BetService', '$location',
-      function ($scope, $uibModal, BidsListService, BetService, $location) {
+    ['$scope', 'BidsListService', 'BetService', '$location', 'ModalService',
+      function ($scope, BidsListService, BetService, $location, ModalService) {
 
         var reset = function () {
           console.log("reset");
@@ -22,27 +22,19 @@ angular.module('shokenWebApp')
           $scope.currentPage = pageNo;
         };
 
-        var modalInstance;
+        $scope.bet = function (step, value, bidId) {
+          BetService.setBetManagement(step, value, bidId, 333);
 
-        var open = function (step, value, bidId, investorId) {
-          BetService.setBetManagement(step, value, bidId, investorId);
-          modalInstance = $uibModal.open({
+          ModalService.show({
             size: 'sm',
             templateUrl: 'views/bid/list/modal/bet-modal.html',
             controller: 'BetModalCtrl',
-            resolve: {
-            }
+            resolve: {}
+          },
+          function () {
+            console.log('Modal dismissed at: ' + new Date());
           });
-
-          modalInstance.result.then(
-            function () {
-            },
-            function () {
-              console.log('Modal dismissed at: ' + new Date());
-            });
         };
-
-        $scope.bet = open;
 
         $scope.$watch("currentPage + itemsPerPage", function() {
           var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
