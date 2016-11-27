@@ -14,7 +14,7 @@ angular.module('shokenWebApp')
         $scope.betManagement = {};
 
         var up = function (up) {
-          if(!up && $scope.betManagement.delta <= $scope.betManagement.step) {
+          if (!up && $scope.betManagement.delta <= $scope.betManagement.step) {
             return;
           }
 
