@@ -39,8 +39,8 @@ angular.module('shokenWebApp')
 
         var id = $routeParams.id;
 
-        var getBidCallback = function (data) {
-          $scope.bidDetailed = data;
+        var getBidCallback = function (response) {
+          $scope.bidDetailed = response.data;
 
           BetService.setBetManagement(
             $scope.bidDetailed.price.step,
