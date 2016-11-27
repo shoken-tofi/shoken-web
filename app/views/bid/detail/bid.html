@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-offset-1 col-sm-10 bid-block">
   <div class="col-xs-12 block-separated">
     <div class="detail-img col-xs-12 col-sm-3">
-      <img class="img-thumbnail" src="{{bidDetailed.imageUrl}}" alt="{{bid.title}}">
+      <img class="img-thumbnail" src="{{bidDetailed.imageUrl}}" alt="{{bidDetailed.title}}">
     </div>
     <div class="col-xs-12 col-sm-9">
       <div class="row">
@@ -37,7 +37,7 @@
     <div class="col-xs-12 col-sm-4">
       <h3>Base information</h3>
       <p>Time left:
-        <span class="label label-default">{{bidDetailed.timeLeft.hours}}h {{bid.timeLeft.minutes}}min {{bid.timeLeft.seconds}}s</span>
+        <span class="label label-default">{{bidDetailed.timeLeft.hours}}h {{bidDetailed.timeLeft.minutes}}min {{bidDetailed.timeLeft.seconds}}s</span>
       </p>
       <p>Pay by: {{bidDetailed.paymentType}}</p>
     </div>
@@ -68,11 +68,11 @@
             <th>Bet size</th>
           </tr>
         </thead>
-        <tr ng-repeat="investor in bidDetailed.investors">
+        <tr ng-repeat="bet in bidDetailed.bets">
           <td><span class="bet-up glyphicon glyphicon-chevron-up"></span></td>
-          <td>{{investor.betDate}}</td>
-          <td>{{investor.name}}</td>
-          <td>{{investor.bet}}$</td>
+          <td>{{bet.betDate}}</td>
+          <td>{{bet.name}}</td>
+          <td>{{bet.bet}}$</td>
         </tr>
       </table>
     </div>
