@@ -52,8 +52,10 @@ angular.module('shokenWebApp')
         });
 
         var success = function (response) {
-          var bids = response ? response.bids || [] : [];
-          $scope.bids = bids;
+          var bids = response ? response.data.bids || [] : [];
+          console.log(bids);
+          $scope.filteredBids = bids;
+          console.log($scope.filteredBids);
           $scope.totalItems = bids.length;
         };
 

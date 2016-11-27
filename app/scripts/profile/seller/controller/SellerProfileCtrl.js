@@ -14,8 +14,8 @@ angular.module('shokenWebApp')
 
         console.log("loading " + tab);
 
-        var getBidsListCallback = function (bids) {
-          $scope.bids = bids;
+        var getBidsListCallback = function (response) {
+          $scope.bids = response ? response.data.bids || [] : [];
         };
 
         if(tab) {
