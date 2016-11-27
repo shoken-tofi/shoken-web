@@ -36,13 +36,6 @@ angular.module('shokenWebApp')
           });
         };
 
-        $scope.$watch("currentPage + itemsPerPage", function() {
-          var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
-              end   = begin + $scope.itemsPerPage;
-
-          $scope.filteredBids = $scope.bids.slice(begin, end);
-        });
-
         var success = function (response) {
           var bids = response ? response.data.bids || [] : [];
           console.log(bids);
@@ -56,6 +49,15 @@ angular.module('shokenWebApp')
           reset();
         };
 
-        BidsListService.getList(success);
+        $scope.$watch("currentPage + itemsPerPage", function() {
+          // var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+          //     end   = begin + $scope.itemsPerPage;
+          //
+          // $scope.filteredBids = $scope.bids.slice(begin, end);
+
+          BidsListService.getList($scope.currentPage, success, error);
+        });
+
+        BidsListService.getList($scope.currentPage, success, error);
 
       }]);
