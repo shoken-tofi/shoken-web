@@ -62,7 +62,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Bet date</th>
+            <th></th>
             <th>Bet date</th>
             <th>Name</th>
             <th>Bet size</th>
@@ -70,9 +70,9 @@
         </thead>
         <tr ng-repeat="bet in bidDetailed.bets">
           <td><span class="bet-up glyphicon glyphicon-chevron-up"></span></td>
-          <td>{{bet.betDate}}</td>
-          <td>{{bet.name}}</td>
-          <td>{{bet.bet}}$</td>
+          <td>{{bet.date | date : 'medium'}}</td>
+          <td>{{bet.investor.username}}</td>
+          <td>{{bet.value | currency}}$</td>
         </tr>
       </table>
     </div>
