@@ -8,11 +8,15 @@ angular.module('shokenWebApp')
   .controller('BidsListCtrl',
     ['$scope', '$uibModal', 'BidsListService', 'BetService', '$location',
       function ($scope, $uibModal, BidsListService, BetService, $location) {
-        $scope.bids = [];
-        $scope.filteredBids = [];
 
-        $scope.itemsPerPage = 10;
-        $scope.currentPage = 1;
+        var reset = function () {
+          console.log("reset");
+          $scope.bids = [];
+          $scope.filteredBids = [];
+
+          $scope.itemsPerPage = 10;
+          $scope.currentPage = 1;
+        }();
 
         $scope.setPage = function (pageNo) {
           $scope.currentPage = pageNo;
@@ -40,11 +44,6 @@ angular.module('shokenWebApp')
 
         $scope.bet = open;
 
-        var getListCallback = function (data) {
-          $scope.bids = data;
-          $scope.totalItems = data.length;
-        };
-
         $scope.$watch("currentPage + itemsPerPage", function() {
           var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
               end   = begin + $scope.itemsPerPage;
@@ -52,6 +51,19 @@ angular.module('shokenWebApp')
           $scope.filteredBids = $scope.bids.slice(begin, end);
         });
 
-        BidsListService.getList(getListCallback);
+        var success = function (response) {
+          var bids = response ? response.data.bids || [] : [];
+          console.log(bids);
+          $scope.filteredBids = bids;
+          console.log($scope.filteredBids);
+          $scope.totalItems = bids.length;
+        };
+
+        var error = function (err) {
+          console.log(err);
+          reset();
+        };
+
+        BidsListService.getList(success);
 
       }]);
