@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('BidsListCtrl',
-    ['$scope', 'BidsListService', 'BetService', '$location', 'ModalService',
-      function ($scope, BidsListService, BetService, $location, ModalService) {
+    ['$scope', 'BidsListService', 'BetService', '$location', 'ModalService', 'ngNotify',
+      function ($scope, BidsListService, BetService, $location, ModalService, ngNotify) {
 
         var reset = function () {
           console.log("reset");
