@@ -17,7 +17,7 @@ angular.module('shokenWebApp')
         var activeTab = activeTabs[level];
         if (!tab || !activeTab) {
           if(tab && level === 0) {
-            var tabs = $location.path().split("/");
+            var tabs = $location.path().split('/');
             if(tabs && tabs[1] && tabs[1] === tab) {
               return true;
             }
