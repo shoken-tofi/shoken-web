@@ -45,7 +45,7 @@ angular.module('shokenWebApp')
         };
 
         var error = function (err) {
-          console.log(err);
+          ngNotify.set('An error occured during fetching bids list.', 'error');
           reset();
         };
 

@@ -12,7 +12,6 @@ angular.module('shokenWebApp')
 
         instance.getList = function (page, successCallback, errorCallback) {
 
-
           var bids = [];
 
           var requestUrl = API.bids;

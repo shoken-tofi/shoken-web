@@ -6,21 +6,22 @@
  */
 angular.module('shokenWebApp')
   .controller('BidCreateCtrl',
-    ['$scope', '$routeParams', 'BidCreateService', '$location',
-      function ($scope, $routeParams, BidCreateService, $location) {
+    ['$scope', '$routeParams', 'BidCreateService', '$location', 'ngNotify',
+      function ($scope, $routeParams, BidCreateService, $location, ngNotify) {
 
         $scope.newBid = {};
         $scope.newBid.sellerId = 333;
         $scope.newBid.quantity = 1;
 
         var success = function () {
-          console.log("Bid was successfully created");
+          ngNotify.set("Bid was successfully created");
 
+          //  TODO: transfer as a param
           $location.path("/bids");
         };
 
         var error = function () {
-          console.log("An error occured during bid saving");
+          ngNotify.set('An error occurred during bid saving!', 'error');
         };
 
         var save = function () {

@@ -6,14 +6,14 @@
  */
 angular.module('shokenWebApp')
   .controller('RegistrationCtrl',
-    ['$scope', 'RegistrationService',
-      function ($scope, RegistrationService) {
+    ['$scope', 'RegistrationService', 'ngNotify',
+      function ($scope, RegistrationService, ngNotify) {
         $scope.form = {};
         $scope.form.username = '';
         $scope.form.email = '';
         $scope.form.password = '';
         $scope.form.password_confirmation = '';
-debugger;
+
         var valid = function () {
           if(!$scope.form) {
             console.log("err");
@@ -62,11 +62,11 @@ debugger;
         };
 
         var success = function (response) {
-          console.log('Sign up successeed' + JSON.stringify(response.data));
+          ngNotify.set('Sign up successeed.');
         };
 
         var error = function (response) {
-          console.log('Sign up failed. ' + (response.statusText || ''));
+          ngNotify('Sign up failed.');
         };
 
         var submit = function () {
