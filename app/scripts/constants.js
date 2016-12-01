@@ -4,7 +4,7 @@
  * Constants for the shokenWebApp
  */
 
-var backendUrl = "https://shoken-back.herokuapp.com";
+var backendUrl = 'https://shoken-back.herokuapp.com';
 
 angular
   .module('shokenWebApp')

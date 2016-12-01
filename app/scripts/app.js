@@ -6,7 +6,8 @@
 angular
   .module('shokenWebApp', [
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngNotify'
   ])
   .config(['$routeProvider', function ($routeProvider) {
 
@@ -80,4 +81,13 @@ angular
           .otherwise({
             redirectTo: '/'
           });
-      }]);
+      }])
+  .run(['ngNotify', function (ngNotify) {
+    ngNotify.config({
+      theme: 'pitchy',
+      position: 'top',
+      duration: 2000,
+      sticky: false,
+      html: true
+    });
+  }]);

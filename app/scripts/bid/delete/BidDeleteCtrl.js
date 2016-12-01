@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('BidDeleteCtrl',
-    ['$scope', 'BidsListService', '$location',
-      function ($scope, BidsListService, $location) {
+    ['$scope', 'BidsListService', '$location', 'ngNotify',
+      function ($scope, BidsListService, $location, ngNotify) {
 
         $scope.deleteMode = false;
         var idsToDelete = [];
@@ -36,7 +36,13 @@ angular.module('shokenWebApp')
             BidsListService.delete(
               idsToDelete,
               function () {
+                ngNotify.set('Bids succesfully deleted.');
+
+                //  TODO:
                 // $location.path("/bids");
+              },
+              function () {
+                ngNotify.set('An error occurred during bids removing.', 'error');
               }
             );
           }
