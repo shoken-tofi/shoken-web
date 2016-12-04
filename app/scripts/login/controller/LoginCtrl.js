@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('LoginCtrl',
-    ['$scope', 'LoginService',
-      function ($scope, LoginService) {
+    ['$scope', 'LoginService', 'ngNotify',
+      function ($scope, LoginService, ngNotify) {
 
         $scope.form = {};
         $scope.form.username = '';
@@ -33,6 +33,7 @@ angular.module('shokenWebApp')
               console.log('Login successeed' + JSON.stringify(response.data));
             },
             function (response) {
+              ngNotify.set('Login failed. Please, check your username and password.', 'error');
               console.log('Login failed. ' + (response.data || ''));
             });
         };

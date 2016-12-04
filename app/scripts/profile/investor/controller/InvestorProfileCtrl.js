@@ -6,8 +6,8 @@
  */
 angular.module('shokenWebApp')
   .controller('InvestorProfileCtrl',
-    ['$scope', '$routeParams', 'BidsListService','$uibModal', 'BetService',
-      function ($scope, $routeParams, BidsListService, $uibModal, BetService) {
+    ['$scope', '$routeParams', 'BidsListService','$uibModal', 'BetService', 'ngNotify',
+      function ($scope, $routeParams, BidsListService, $uibModal, BetService, ngNotify) {
 
         var tab = $routeParams.tab;
 
@@ -42,7 +42,11 @@ angular.module('shokenWebApp')
           $scope.bids = response ? response.data.bids || [] : [];
         };
 
+        var error = function (response) {
+          ngNotify.set('Failed to get bids list. Try later.', 'error');
+        };
+
         if(tab) {
-          BidsListService.getList(getBidsListCallback);
+          BidsListService.getList($scope.currentPage, getBidsListCallback, error);
         }
       }]);
