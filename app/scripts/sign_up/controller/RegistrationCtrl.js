@@ -66,7 +66,7 @@ angular.module('shokenWebApp')
         };
 
         var error = function (response) {
-          ngNotify('Sign up failed.');
+          ngNotify('Sign up failed.', 'error');
         };
 
         var submit = function () {
