@@ -12,4 +12,8 @@ angular
   .constant('API', {
     'bids': backendUrl + '/bids',
     'register': backendUrl + '/register'
-  });
+  })
+  .constant('OPTIONS', {
+    "typeOptions": ['bill', 'bond', 'share']
+  })
+;

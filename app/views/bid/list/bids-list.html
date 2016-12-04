@@ -9,106 +9,66 @@
     </div>
   </div>
   <div class="row">
-    <div id="filter-sidebar" class="col-xs-6 col-sm-2 visible-sm visible-md visible-lg collapse sliding-sidebar">
+    <div ng-controller="FilterCtrl" id="filter-sidebar" class="col-xs-6 col-sm-2 visible-sm visible-md visible-lg collapse sliding-sidebar">
+      <div class="filter-block">
+        <h5>
+          Title
+        </h5>
+        <div>
+          <input ng-model="filter.title" type="text" class="form-control" placeholder="title">
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h5>
+          Current rate
+        </h5>
+        <div class="collapse in">
+          <div class="input-group col-xs-12">
+            <input ng-model="filter.price.from" type="number" step="0.01" placeholder="from" class="form-control input-group-item">
+            <input ng-model="filter.price.to" type="number" step="0.01" placeholder="to" class="form-control input-group-item">
+          </div>
+        </div>
+      </div>
+
       <div>
-        <h4 data-toggle="collapse" data-target="#group-1">
+        <h5 data-toggle="collapse" data-target="#group-1">
           <i class="fa fa-fw fa-caret-down parent-expanded"></i>
           <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
           Type
-        </h4>
+        </h5>
         <div id="group-1" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            Stocks
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            Shares
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span>  -->
-            Bonds
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span>  -->
-            Bills
-          </a>
+          <div ng-repeat="option in filterConfig.typeOptions" class="list-group-item">
+            <input type="radio" ng-model="filter.type" ng-value="{option}">
+            {{option}}
+          </div>
+
         </div>
       </div>
 
       <div>
-        <h4 data-toggle="collapse" data-target="#group-2">
+        <h5 data-toggle="collapse" data-target="#group-2">
           <i class="fa fa-fw fa-caret-down parent-expanded"></i>
           <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
           Status
-        </h4>
+        </h5>
         <div id="group-2" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span>  -->
-            New (created in the last 24 hours)
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            Opened
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            Closed
-          </a>
+          <div class="list-group-item">
+            <input type="checkbox" ng-model="filter.recent">
+            recent
+          </div>
+          <div class="list-group-item">
+            <input type="checkbox" ng-model="filter.progress">
+            progress
+          </div>
+          <div class="list-group-item">
+            <input type="checkbox" ng-model="filter.expiring">
+            expiring
+          </div>
         </div>
       </div>
 
-      <div>
-        <h4 data-toggle="collapse" data-target="#group-3">
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
-          Start price
-        </h4>
-        <div id="group-3" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span>  -->
-            < 10$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            10$ - 30$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            30$ - 100$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            > 100$
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <h4 data-toggle="collapse" data-target="#group-4">
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
-          Current rate
-        </h4>
-        <div id="group-4" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span>  -->
-            < 10$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            10$ - 30$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            30$ - 100$
-          </a>
-          <a class="list-group-item" href="#">
-            <!-- <span class="badge">3</span> -->
-            > 100$
-          </a>
-        </div>
-      </div>
+      <button class="btn btn-default" ng-click="filterList()">Filter</button>
     </div>
   <!-- filter sidebar -->
     <div class="col-md-10">
