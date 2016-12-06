@@ -45,7 +45,9 @@
         <label for="bidExpirationDate" class="control-label col-sm-4">Expiration date</label>
         <div class="col-sm-6">
           Selected Date: {{ newBid.expirationDate | date:'MMM d, y h:mm a' }}
-          <datetimepicker data-ng-model="newBid.expirationDate" data-datetimepicker-config="{ minuteStep: 1 }"></datetimepicker>
+          <datetimepicker data-ng-model="newBid.expirationDate"
+                          data-datetimepicker-config="{ minuteStep: 1 }"
+                          data-before-render="startDateBeforeRender($dates)"></datetimepicker>
         </div>
       </div>
     </div>
