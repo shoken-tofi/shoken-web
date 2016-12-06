@@ -8,27 +8,15 @@ angular.module('shokenWebApp')
   .controller('LoginCtrl',
     ['$scope', 'LoginService', 'ngNotify',
       function ($scope, LoginService, ngNotify) {
-
-        $scope.form = {};
-        $scope.form.username = '';
-        $scope.form.password = '';
-
-        var valid = function () {
-          //  TODO: add validation by length
-          return $scope.form &&
-            $scope.form.username &&
-            $scope.form.password;
-        };
-
-        var submit = function () {
-          if(!valid()) {
+        $scope.submit = function () {
+          if ($scope.loginForm.$invalid) {
             console.log('Error in login form');
             return;
           }
 
           LoginService.login(
-            $scope.form.username,
-            $scope.form.password,
+            $scope.loginForm.username.$modelValue,
+            $scope.loginForm.password.$modelValue,
             function (response) {
               console.log('Login successeed' + JSON.stringify(response.data));
             },
@@ -37,7 +25,4 @@ angular.module('shokenWebApp')
               console.log('Login failed. ' + (response.data || ''));
             });
         };
-
-        $scope.submit = submit;
-
       }]);

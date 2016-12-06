@@ -7,7 +7,9 @@ angular
   .module('shokenWebApp', [
     'ngRoute',
     'ui.bootstrap',
-    'ngNotify'
+    'ui.bootstrap.datetimepicker',
+    'ngNotify',
+    'ngMessages'
   ])
   .config(['$routeProvider', function ($routeProvider) {
 
