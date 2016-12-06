@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row">
-    <div ng-controller="FilterCtrl" id="filter-sidebar" class="col-xs-6 col-sm-2 visible-sm visible-md visible-lg collapse sliding-sidebar">
+    <div id="filter-sidebar" class="col-xs-6 col-sm-2 visible-sm visible-md visible-lg collapse sliding-sidebar">
       <div class="filter-block">
         <h5>
           Title
@@ -69,6 +69,7 @@
       </div>
 
       <button class="btn btn-default" ng-click="filterList()">Filter</button>
+      <button class="btn btn-xs" ng-click="resetFilter()">reset</button>
     </div>
   <!-- filter sidebar -->
     <div class="col-md-10">

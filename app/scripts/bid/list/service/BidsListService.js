@@ -10,7 +10,7 @@ angular.module('shokenWebApp')
 
         var instance = {};
 
-        instance.getList = function (page, successCallback, errorCallback) {
+        instance.getList = function (page, filter, successCallback, errorCallback) {
 
           var bids = [];
 
@@ -21,7 +21,7 @@ angular.module('shokenWebApp')
             .get(requestUrl, {
               "params": {
                 "page": page
-              }
+              } // TODO!!! use filter params
             })
             .then(successCallback, errorCallback);
         };

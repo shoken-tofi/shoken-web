@@ -47,6 +47,6 @@ angular.module('shokenWebApp')
         };
 
         if(tab) {
-          BidsListService.getList($scope.currentPage, getBidsListCallback, error);
+          BidsListService.getList($scope.currentPage, {}, getBidsListCallback, error);
         }
       }]);
