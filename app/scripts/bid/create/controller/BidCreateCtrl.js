@@ -13,6 +13,16 @@ angular.module('shokenWebApp')
         $scope.newBid.sellerId = 333;
         $scope.newBid.quantity = 1;
 
+        $scope.startDateBeforeRender = function ($dates) {
+          var activeDate = moment(new Date());
+
+          $dates.filter(function (date) {
+            return date.localDateValue() <= activeDate.valueOf()
+          }).forEach(function (date) {
+            date.selectable = false;
+          })
+        }
+
         var success = function () {
           ngNotify.set("Bid was successfully created");
 
