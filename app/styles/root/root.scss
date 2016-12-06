@@ -196,3 +196,26 @@ form {
 .nav.nav-tabs {
   margin-bottom: 2em;
 }
+
+.pagination {
+  li {
+    a {
+      color: $color-primary-2;
+
+      &:hover {
+        color: $color-primary-1;
+        background-color: $color-header-background;
+      }
+    }
+  }
+
+  .active {
+    a,
+    a:hover,
+    a:focus {
+      color: $color-primary-2;
+      background-color: $color-header-background;
+      border-color: $color-primary-2;
+    }
+  }
+}
