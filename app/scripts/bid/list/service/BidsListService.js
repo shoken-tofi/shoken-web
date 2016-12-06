@@ -17,11 +17,19 @@ angular.module('shokenWebApp')
           var requestUrl = API.bids;
           console.log(requestUrl);
 
+          var params = Object.assign({
+            "page": page
+            },
+            filter
+          );
+          if(params.type) {
+            params.type = params.type.option;
+          }
+          console.log(params);
+
           $http
             .get(requestUrl, {
-              "params": {
-                "page": page
-              } // TODO!!! use filter params
+              "params": params
             })
             .then(successCallback, errorCallback);
         };

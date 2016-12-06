@@ -157,7 +157,8 @@ h5, h6 {
   border-radius: $radius-xsmall;
 }
 
-a {
+a,
+.btn-link {
   color: $color-secondary-1-0;
 
   &:hover {
