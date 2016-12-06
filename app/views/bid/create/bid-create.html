@@ -44,7 +44,8 @@
       <div class="form-group">
         <label for="bidExpirationDate" class="control-label col-sm-4">Expiration date</label>
         <div class="col-sm-6">
-          <input id="bidExpirationDate" type="datetime" class="form-control" ng-model="newBid.expirationDate">
+          Selected Date: {{ newBid.expirationDate | date:'MMM d, y h:mm a' }}
+          <datetimepicker data-ng-model="newBid.expirationDate" data-datetimepicker-config="{ minuteStep: 1 }"></datetimepicker>
         </div>
       </div>
     </div>
