@@ -38,7 +38,7 @@ angular.module('shokenWebApp')
               function () {
                 ngNotify.set('Bids succesfully deleted.');
 
-                //  TODO:
+                //  TODO: pass new location as param
                 // $location.path("/bids");
               },
               function () {

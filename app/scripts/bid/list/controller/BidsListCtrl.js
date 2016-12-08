@@ -58,11 +58,6 @@ angular.module('shokenWebApp')
         };
 
         $scope.$watch("currentPage + itemsPerPage", function() {
-          // var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
-          //     end   = begin + $scope.itemsPerPage;
-          //
-          // $scope.filteredBids = $scope.bids.slice(begin, end);
-
           BidsListService.getList($scope.currentPage, $scope.filter, success, error);
         });
 
