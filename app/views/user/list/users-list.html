@@ -4,12 +4,11 @@
     <div ng-repeat="user in filteredUsers" class="col-xs-12 col-sm-4">
       <div class="block-separated inverse">
         <h3>
-          <a href="#/user/{{user.id}}">{{user.username}} </a>
+          <a href="#/users/{{user.id}}">{{user.login}} </a>
           <span class="label danger" ng-show="{{user.banned}}">ban</span>
         </h3>
         <h6>
           <span>{{user.email}}</span>
-          <span> | {{user.fullname}}</span>
         </h6>
       </div>
     </div>
