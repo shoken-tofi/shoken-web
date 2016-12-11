@@ -83,20 +83,6 @@
     <div class="col-xs-12 block-separated">
       <h3>Secondary information</h3>
       <br />
-      <div class="form-group" ng-class="{ 'has-error': (bidForm.$submitted || bidForm.step.$touched) && bidForm.step.$invalid }">
-        <label for="bidStep" class="control-label col-sm-4">Step percent</label>
-        <div class="col-sm-6">
-          <select name="step" id="bidStep" class="form-control" required
-                  ng-model="newBid.step">
-            <option value="3">3%</option>
-            <option value="5">5%</option>
-            <option value="10">10%</option>
-          </select>
-        </div>
-      </div>
-      <div class="help-block" ng-messages="bidForm.step.$error" ng-show="bidForm.$submitted || bidForm.step.$touched" role="alert">
-        <div ng-messages-include="views/helpers/form/messages.html"></div>
-      </div>
       <div class="form-group">
         <label for="bidComment" class="control-label col-sm-4">Comment</label>
         <div class="col-sm-6">
