@@ -34,12 +34,13 @@ angular.module('shokenWebApp')
           ngNotify.set('An error occurred during bid saving!', 'error');
         };
 
-        var save = function () {
+        $scope.submit = function () {
+          if ($scope.bidForm.$invalid) {
+            console.log('Error in bid form');
+            return;
+          }
           console.log("Saving bid..");
           console.log($scope.newBid);
           BidCreateService.save($scope.newBid, success, error);
         };
-
-        $scope.submit = save;
-
       }]);
