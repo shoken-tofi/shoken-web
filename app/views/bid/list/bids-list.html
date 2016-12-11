@@ -39,7 +39,7 @@
         </h5>
         <div id="group-1" class="list-group collapse in">
           <div ng-repeat="option in filterConfig.typeOptions" class="list-group-item">
-            <input type="radio" ng-model="filter.type" ng-value="{option}">
+            <input type="radio" ng-model="filter.type" value="{{option}}">
             {{option}}
           </div>
 

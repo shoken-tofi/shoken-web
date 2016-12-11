@@ -18,12 +18,12 @@ angular.module('shokenWebApp')
           $scope.currentPage = pageNo;
         };
 
-        var getListCallback = function (data) {
-          $scope.users = data;
-          $scope.totalItems = data.length;
+        var getListCallback = function (response) {
+          $scope.users = response.data.users;
+          $scope.totalItems = response.data.users.length;
         };
 
-        $scope.$watch("currentPage + itemsPerPage", function() {
+        $scope.$watch("users + currentPage + itemsPerPage", function() {
           var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
               end   = begin + $scope.itemsPerPage;
 

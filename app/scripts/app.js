@@ -55,6 +55,12 @@ angular
             controllerAs: 'usersList',
             tab: 'users'
           })
+          .when('/users/:id', {
+            templateUrl: 'views/user/detail/user.html',
+            controller: 'UserCtrl',
+            controllerAs: 'user',
+            tab: 'users'
+          })
           .when('/seller', {
             templateUrl: 'views/profile/seller/seller-profile.html',
             controller: 'SellerProfileCtrl',

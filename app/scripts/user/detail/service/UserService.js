@@ -1,21 +1,22 @@
 'use strict';
 
 /**
- * Users List Service
+ * Bid service
  */
 angular.module('shokenWebApp')
-  .factory('UsersListService',
+  .factory('UserService',
     ['$http', 'API',
       function ($http, API) {
         var instance = {};
 
-        instance.getList = function (successCallback, errorCallback) {
-          var requestUrl = `${API.users}`;
+        instance.get = function (id, successCallback, errorCallback) {
+          var requestUrl = `${API.users}/${id}`;
+
+          console.log(requestUrl);
+
           $http
             .get(requestUrl)
             .then(successCallback, errorCallback);
         };
-
         return instance;
-
       }]);
