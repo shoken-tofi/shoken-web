@@ -12,7 +12,6 @@ angular
     'ngMessages'
   ])
   .config(['$routeProvider', function ($routeProvider) {
-
         $routeProvider
           .when('/', {
             templateUrl: 'views/root/root.html',

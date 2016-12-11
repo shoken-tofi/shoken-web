@@ -12,7 +12,7 @@ angular.module('shokenWebApp')
       var activeTabs = {};
 
       var isActive = function (tab, level) {
-        level = level ? level : defaultLevel;
+        level = level || defaultLevel;
 
         var activeTab = activeTabs[level];
         if (!tab || !activeTab) {
@@ -28,7 +28,7 @@ angular.module('shokenWebApp')
       };
 
       var select = function (tab, level) {
-        level = level ? level : defaultLevel;
+        level = level || defaultLevel;
 
         if (!tab) {
           activeTabs[level] = '';
