@@ -12,9 +12,10 @@ angular
   .constant('API', {
     'bids': backendUrl + '/bids',
     'register': backendUrl + '/register',
-    'users': backendUrl + '/users'
+    'users': backendUrl + '/users',
+    'login': backendUrl + '/login'
   })
   .constant('OPTIONS', {
-    "typeOptions": ['bill', 'bond', 'share']
+    'typeOptions': ['bill', 'bond', 'share']
   })
 ;

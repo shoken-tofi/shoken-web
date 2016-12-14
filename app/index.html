@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-controller="RootCtrl">
   <head>
     <meta charset="utf-8">
     <title>Shoken</title>
@@ -32,12 +32,12 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{active: isActive('login')}" ng-click="select('login')"><a ng-href="#/login">Login</a></li>
-              <li ng-class="{active: isActive('sign_up')}" ng-click="select('sign_up')"><a ng-href="#/sign_up">Sign up</a></li>
+              <li data-ng-show="!credentials || !credentials.username" ng-class="{active: isActive('login')}" ng-click="select('login')"><a ng-href="#/login">Login</a></li>
+              <li data-ng-show="!credentials || !credentials.username" ng-class="{active: isActive('sign_up')}" ng-click="select('sign_up')"><a ng-href="#/sign_up">Sign up</a></li>
               <li ng-class="{active: isActive('bids')}" ng-click="select('bids')"><a ng-href="#/bids">Bids</a></li>
-              <li ng-class="{active: isActive('users')}" ng-click="select('users')"><a ng-href="#/users">Users</a></li>
-              <li ng-class="{active: isActive('seller')}" ng-click="select('seller')"><a ng-href="#/seller">Seller's Profile</a></li>
-              <li ng-class="{active: isActive('investor')}" ng-click="select('investor')"><a ng-href="#/investor">Investor's Profile</a></li>
+              <li data-ng-show="credentials && credentials.username" ng-class="{active: isActive('users')}" ng-click="select('users')"><a ng-href="#/users">Users</a></li>
+              <li data-ng-show="credentials && credentials.username" ng-class="{active: isActive('seller')}" ng-click="select('seller')"><a ng-href="#/seller">Seller's Profile</a></li>
+              <li data-ng-show="credentials && credentials.username" ng-class="{active: isActive('investor')}" ng-click="select('investor')"><a ng-href="#/investor">Investor's Profile</a></li>
             </ul>
 
           </div>

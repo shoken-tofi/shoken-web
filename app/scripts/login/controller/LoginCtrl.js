@@ -6,14 +6,16 @@
  */
 angular.module('shokenWebApp')
   .controller('LoginCtrl',
-    ['$scope', 'LoginService', 'ngNotify',
-      function ($scope, LoginService, ngNotify) {
+    ['$scope', 'LoginService', 'ngNotify', '$location',
+      function ($scope, LoginService, ngNotify, $location) {
         var success = function (response) {
           ngNotify.set('Login successeed.');
+
+          $location.path("/bids");
         };
 
         var error = function (response) {
-          ngNotify('Login failed. Please, check your username and password.', 'error');
+          ngNotify.set('Login failed. Please, check your username and password.', 'error');
         };
 
         $scope.submit = function () {

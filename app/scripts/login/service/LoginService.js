@@ -11,7 +11,7 @@ angular.module('shokenWebApp')
         var instance = {};
         instance.login = function (username, password, successCallback, errorCallback) {
           $http
-            .get(API.url)
+            .get(API.login)
             .then(successCallback, errorCallback);
         };
 

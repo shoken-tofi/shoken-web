@@ -6,14 +6,16 @@
  */
 angular.module('shokenWebApp')
   .controller('RegistrationCtrl',
-    ['$scope', 'RegistrationService', 'ngNotify',
-      function ($scope, RegistrationService, ngNotify) {
+    ['$scope', 'RegistrationService', 'ngNotify', '$location',
+      function ($scope, RegistrationService, ngNotify, $location) {
         var success = function (response) {
           ngNotify.set('Sign up successeed.');
+
+          $location.path("/bids");
         };
 
         var error = function (response) {
-          ngNotify('Sign up failed.', 'error');
+          ngNotify.set('Sign up failed.', 'error');
         };
 
         $scope.submit = function () {
