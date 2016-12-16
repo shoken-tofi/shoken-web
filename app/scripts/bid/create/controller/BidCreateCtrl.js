@@ -10,7 +10,6 @@ angular.module('shokenWebApp')
       function ($scope, $routeParams, BidCreateService, $location, ngNotify) {
 
         $scope.newBid = {};
-        $scope.newBid.sellerId = 333;
         $scope.newBid.quantity = 1;
 
         $scope.startDateBeforeRender = function ($dates) {
@@ -21,7 +20,7 @@ angular.module('shokenWebApp')
           }).forEach(function (date) {
             date.selectable = false;
           })
-        }
+        };
 
         var success = function () {
           ngNotify.set("Bid was successfully created");
@@ -36,11 +35,16 @@ angular.module('shokenWebApp')
 
         $scope.submit = function () {
           if ($scope.bidForm.$invalid) {
-            console.log('Error in bid form');
+            ngNotify.set('Some fields are not valid. Fix and submit', 'error');
             return;
           }
-          console.log("Saving bid..");
-          console.log($scope.newBid);
-          BidCreateService.save($scope.newBid, success, error);
+          var fd = new FormData();
+          console.log(fd);
+          fd = Object.assign(fd, $scope.newBid);
+          fd.append("file", $scope.image);
+
+          console.log(fd);
+
+          BidCreateService.save(fd, success, error);
         };
       }]);

@@ -11,11 +11,17 @@ angular.module('shokenWebApp')
         var instance = {};
 
         instance.save = function (newBid, successCallback, errorCallback) {
-          //  TODO: service call for save
+          console.log(newBid);
 
-          if(successCallback) {
-            successCallback();
-          }
+          $http.post(
+            API.bids,
+            newBid, {
+              "headers": {
+                transformRequest: angular.identity,
+                "Content-Type": undefined
+              }
+            })
+            .then(successCallback, errorCallback);
         };
 
         return instance;
