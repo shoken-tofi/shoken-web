@@ -25,12 +25,24 @@ angular.module('shokenWebApp')
           if(params.type) {
             params.bidTypes.push(params.type);
           }
-          params.startDateHoursGone = params.recent ? 24 : params.progress ? -1 : null;
-          params.expirationDateHoursLeft = params.expiring ? 24 : params.progress ? -1 : null;
-          if(params.recent && params.expiring && params.progress) {
-            params.startDateHoursGone = null;
-            params.expirationDateHoursLeft = null;
-          }
+
+          params.minStartDateHoursGone = params.recent ? 0 : -1;
+          params.maxStartDateHoursGone = params.recent ? 24 : -1;
+
+          params.minStartDateHoursGone = params.progress ? params.recent ? params.minStartDateHoursGone : 24 : params.minStartDateHoursGone;
+          params.maxStartDateHoursGone = params.progress ? -1 : params.maxStartDateHoursGone;
+
+          params.minExpirationDateHoursLeft = params.expiring ? 0 : -1;
+          params.maxExpirationDateHoursLeft = params.expiring ? 24 : -1;
+
+          params.minExpirationDateHoursLeft = params.progress ? params.expiring ? params.minExpirationDateHoursLeft : 24 : params.minExpirationDateHoursLeft;
+          params.maxExpirationDateHoursLeft = params.progress ? -1 : params.maxExpirationDateHoursLeft;
+
+          // params.minStartDateHoursGone = params.progress ? 24 : -1;
+          // params.maxStartDateHoursGone = params.recent ? 24 : -1;
+          //
+          // params.minExpirationDateHoursLeft = params.progress ? 24 : -1;
+          // params.maxExpirationDateHoursLeft = params.expiring ? 24 : -1;
 
           console.log(params);
 

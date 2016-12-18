@@ -13,7 +13,7 @@ angular.module('shokenWebApp')
           console.log("reset filter");
           $scope.filter = {};
 
-          $scope.title = null;
+          $scope.query = null;
 
           $scope.filter.minBetPrice = null;
           $scope.filter.maxBetPrice = null;
