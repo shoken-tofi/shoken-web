@@ -17,9 +17,9 @@ angular.module('shokenWebApp')
             API.bids,
             newBid, {
               "headers": {
-                transformRequest: angular.identity,
                 "Content-Type": undefined
-              }
+              },
+              transformRequest: angular.identity
             })
             .then(successCallback, errorCallback);
         };

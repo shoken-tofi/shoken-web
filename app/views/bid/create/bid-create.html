@@ -104,7 +104,7 @@
       <div class="form-group">
         <label for="bidImage" class="control-label col-sm-4">Upload image</label>
         <div class="col-sm-6">
-          <input id="bidImage" type="file" class="form-control" name="bidImage" accept="image/jpeg,image/png,image/gif" file-input="upload">
+          <input id="bidImage" type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" class="form-control" accept="image/jpeg,image/png,image/gif">
         </div>
       </div>
     </div>

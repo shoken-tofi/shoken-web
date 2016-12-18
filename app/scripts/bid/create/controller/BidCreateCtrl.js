@@ -33,16 +33,18 @@ angular.module('shokenWebApp')
           ngNotify.set('An error occurred during bid saving!', 'error');
         };
 
+        $scope.fd = undefined;
+        $scope.uploadFile = function(files) {
+          $scope.fd = new FormData();
+          $scope.fd.append("file", files[0]);
+        };
+
         $scope.submit = function () {
           if ($scope.bidForm.$invalid) {
             ngNotify.set('Some fields are not valid. Fix and submit', 'error');
             return;
           }
-          var fd = new FormData();
-          console.log(fd);
-          fd = Object.assign(fd, $scope.newBid);
-          fd.append("file", $scope.image);
-
+          var fd = Object.assign($scope.fd, $scope.newBid);
           console.log(fd);
 
           BidCreateService.save(fd, success, error);
