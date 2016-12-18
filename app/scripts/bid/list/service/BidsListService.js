@@ -15,16 +15,23 @@ angular.module('shokenWebApp')
           var bids = [];
 
           var requestUrl = API.bids;
-          console.log(requestUrl);
 
           var params = Object.assign({
             "page": page
             },
             filter
           );
+          params.bidTypes = [];
           if(params.type) {
-            params.type = params.type.option;
+            params.bidTypes.push(params.type);
           }
+          params.startDateHoursGone = params.recent ? 24 : params.progress ? -1 : null;
+          params.expirationDateHoursLeft = params.expiring ? 24 : params.progress ? -1 : null;
+          if(params.recent && params.expiring && params.progress) {
+            params.startDateHoursGone = null;
+            params.expirationDateHoursLeft = null;
+          }
+
           console.log(params);
 
           $http

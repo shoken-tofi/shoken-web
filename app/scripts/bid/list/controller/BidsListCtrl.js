@@ -15,10 +15,8 @@ angular.module('shokenWebApp')
 
           $scope.title = null;
 
-          $scope.filter.price = {
-            from: null,
-            to: null
-          };
+          $scope.filter.minBetPrice = null;
+          $scope.filter.maxBetPrice = null;
 
           $scope.filter.recent = false;
           $scope.filter.progress = false;
