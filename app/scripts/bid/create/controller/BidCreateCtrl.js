@@ -22,6 +22,24 @@ angular.module('shokenWebApp')
           })
         };
 
+        var successUpload = function (data) {
+          ngNotify.set("Image was successfully uploaded.");
+          $scope.previewUrl = data.url;
+          $scope.newBid.imageName = data.imageName;
+        };
+
+        var errorUpload = function () {
+          ngNotify.set('An error occurred during upoading image to server!', 'error');
+        };
+
+        $scope.uploadFile = function(files) {
+          $scope.newBid.imageName = undefined;
+
+          var fd = new FormData();
+          fd.append("file", files[0]);
+          BidCreateService.upload(fd, successUpload, errorUpload);
+        };
+
         var success = function () {
           ngNotify.set("Bid was successfully created");
 
@@ -33,20 +51,12 @@ angular.module('shokenWebApp')
           ngNotify.set('An error occurred during bid saving!', 'error');
         };
 
-        $scope.fd = undefined;
-        $scope.uploadFile = function(files) {
-          $scope.fd = new FormData();
-          $scope.fd.append("file", files[0]);
-        };
-
         $scope.submit = function () {
           if ($scope.bidForm.$invalid) {
             ngNotify.set('Some fields are not valid. Fix and submit', 'error');
             return;
           }
-          var fd = Object.assign($scope.fd, $scope.newBid);
-          console.log(fd);
 
-          BidCreateService.save(fd, success, error);
+          BidCreateService.save($scope.newBid, success, error);
         };
       }]);

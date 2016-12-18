@@ -15,7 +15,15 @@ angular.module('shokenWebApp')
 
           $http.post(
             API.bids,
-            newBid, {
+            newBid)
+            .then(successCallback, errorCallback);
+        };
+
+        instance.upload = function (data, successCallback, errorCallback) {
+
+          $http.post(
+            API.upload,
+            data, {
               "headers": {
                 "Content-Type": undefined
               },
