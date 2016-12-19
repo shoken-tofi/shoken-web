@@ -22,10 +22,10 @@ angular.module('shokenWebApp')
           })
         };
 
-        var successUpload = function (data) {
+        var successUpload = function (response) {
           ngNotify.set("Image was successfully uploaded.");
-          $scope.previewUrl = data.url;
-          $scope.newBid.imageName = data.imageName;
+          $scope.previewUrl = response.data.url;
+          $scope.newBid.imageName = response.data.imageName;
         };
 
         var errorUpload = function () {
@@ -34,6 +34,7 @@ angular.module('shokenWebApp')
 
         $scope.uploadFile = function(files) {
           $scope.newBid.imageName = undefined;
+          $scope.previewUrl = undefined;
 
           var fd = new FormData();
           fd.append("file", files[0]);

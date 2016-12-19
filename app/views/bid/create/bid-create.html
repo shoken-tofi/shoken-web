@@ -105,10 +105,17 @@
         <label for="bidImage" class="control-label col-sm-4">Upload image</label>
         <div class="col-sm-6">
           <input id="bidImage" type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)" class="form-control" accept="image/jpeg,image/png,image/gif">
-          <p>Preview:</p>
-          <img src="previewUrl">
         </div>
       </div>
+
+      <!-- Preview -->
+      <div class="form-group" ng-show="previewUrl">
+        <div class="col-sm-offset-4 col-sm-6">
+          <h4>Preview:</h4>
+          <img class="img-responsive img-thumbnail" alt="preview" src="{{previewUrl}}">
+        </div>
+      </div>
+
     </div>
 
     <div class="col-xs-12 block-separated">
