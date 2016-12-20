@@ -74,7 +74,7 @@
   <!-- filter sidebar -->
     <div class="col-md-10">
       <form class="bids" ng-controller="BidDeleteCtrl">
-        <div class="col-xs-12 block-separated inverse">
+        <div class="col-xs-12 block-separated inverse" data-ng-show="logged">
           <a class="btn btn-sm btn-default pull-right" href="#/bid/new">New</a>
           <button class="btn btn-sm btn-default pull-right" ng-show="!deleteMode" ng-click="deleteModeOn()">Delete mode</button>
           <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
@@ -92,7 +92,7 @@
           <h5>
             <span class="badge">{{bid.type}}</span>
           </h5>
-          <div class="col-xs-12 block-separated">
+          <div class="col-xs-12 block-separated" data-ng-show="logged">
             <p>
               <button class="btn btn-default btn-bet" ng-click="bet(bid.price.step, bid.price.value, bid.id)">
                 {{bid.price.value}}$
