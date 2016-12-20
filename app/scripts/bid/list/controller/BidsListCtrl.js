@@ -42,7 +42,7 @@ angular.module('shokenWebApp')
           console.log(bids);
           $scope.filteredBids = bids;
           console.log($scope.filteredBids);
-          $scope.totalItems = bids.length;
+          $scope.totalItems = response.data.totalElements;
         };
 
         var error = function (err) {
