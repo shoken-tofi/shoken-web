@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('BidCreateService',
-    ['$http', 'API',
-      function ($http, API) {
+    ['$http', 'API', 'AuthenticationService',
+      function ($http, API, AuthenticationService) {
 
         var instance = {};
 
@@ -15,7 +15,11 @@ angular.module('shokenWebApp')
 
           $http.post(
             API.bids,
-            newBid)
+            newBid, {
+              "headers": {
+                "authorization": AuthenticationService.getAuthToken()
+              }
+            })
             .then(successCallback, errorCallback);
         };
 
@@ -25,7 +29,8 @@ angular.module('shokenWebApp')
             API.upload,
             data, {
               "headers": {
-                "Content-Type": undefined
+                "Content-Type": undefined,
+                "authorization": AuthenticationService.getAuthToken()
               },
               transformRequest: angular.identity
             })
