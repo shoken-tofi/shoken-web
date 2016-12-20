@@ -5,27 +5,33 @@
  */
 angular.module('shokenWebApp')
   .service('AuthenticationService',
-    [ '$rootScope',
+    [ '$rootScope', '$localStorage',
       function ($rootScope, $localStorage) {
 
         var authToken;
+
+        this.init = function () {
+          authToken = $localStorage.authToken;
+          if(authToken) {
+            $rootScope.logged = true;
+          }
+        };
 
         this.setSession = function (username, password) {
           console.log("Session for user " + username + " was set.");
           authToken = username ? "Basic " + btoa(username + ":" + password) : "";
           $rootScope.logged = true;
-          // $localStorage.authToken = authToken;
+          $localStorage.authToken = authToken;
         };
 
         this.getAuthToken = function () {
           return authToken;
         };
 
-        this.restoreAuthToken = function () {
-          // authToken = $localStorage.authToken;
-          if(authToken) {
-            $rootScope.logged = true;
-          }
+        $rootScope.logout = function () {
+          authToken = undefined;
+          $rootScope.logged = false;
+          $localStorage.$reset();
         };
 
       }]);

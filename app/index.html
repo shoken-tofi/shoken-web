@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-controller="RootCtrl">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Shoken</title>
@@ -40,7 +40,7 @@
               <li data-ng-show="logged" ng-class="{active: isActive('investor')}" ng-click="select('investor')"><a ng-href="#/investor">Investor's Profile</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li data-ng-show="logged"><a ng-href="#/logout">Logout</a></li>
+              <button data-ng-show="logged" class="btn btn-link navbar-btn" ng-click="logout()">Logout</button>
             </ul>
 
           </div>
@@ -68,10 +68,12 @@
     <script src="components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
     <script src="components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
     <script src="//code.angularjs.org/1.5.9/angular-messages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
     <!-- App scripts -->
     <script src="scripts/app.js"></script>
     <script src="scripts/constants.js"></script>
-    <script src="scripts/root/root.js"></script>
+    <script src="scripts/root/RootCtrl.js"></script>
     <script src="scripts/TabsCtrl.js"></script>
 
     <!-- Util -->

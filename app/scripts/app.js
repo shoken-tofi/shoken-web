@@ -9,7 +9,8 @@ var app = angular
     'ui.bootstrap',
     'ui.bootstrap.datetimepicker',
     'ngNotify',
-    'ngMessages'
+    'ngMessages',
+    'ngStorage'
   ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
@@ -98,4 +99,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     sticky: false,
     html: true
   });
-}]);
+}])
+.run(['AuthenticationService',
+  function(AuthenticationService) {
+    AuthenticationService.init();
+  }
+]);

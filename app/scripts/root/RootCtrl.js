@@ -6,8 +6,6 @@
  */
 angular.module('shokenWebApp')
   .controller('RootCtrl',
-    ['AuthenticationService',
-      function (AuthenticationService) {
-        AuthenticationService.restoreAuthToken();
-      }
+    [
+      function () {}
   ]);
