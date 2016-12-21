@@ -1,10 +1,10 @@
 <h2>Your seller profile</h2>
 <ul class="nav nav-tabs">
   <li ng-class="{active: isActive('active', 1)}" ng-click="select('active', 1)"><a ng-href="#/seller/active">Active</a></li>
-  <li ng-class="{active: isActive('completed', 1)}" ng-click="select('completed', 1)"><a ng-href="#/seller/completed">Completed</a></li>
-  <li ng-class="{active: isActive('billing', 1)}" ng-click="select('billing', 1)"><a ng-href="#/seller/billing">Billing</a></li>
+  <li ng-class="{active: isActive('finished', 1)}" ng-click="select('finished', 1)"><a ng-href="#/seller/finished">Finished</a></li>
+  <li ng-class="{active: isActive('in_payment', 1)}" ng-click="select('in_payment', 1)"><a ng-href="#/seller/in_payment">In payment</a></li>
   <li ng-class="{active: isActive('deleted', 1)}" ng-click="select('deleted', 1)"><a ng-href="#/seller/deleted">Deleted</a></li>
-  <li ng-class="{active: isActive('canceled', 1)}" ng-click="select('canceled', 1)"><a ng-href="#/seller/canceled">Canceled</a></li>
+  <li ng-class="{active: isActive('canceled', 1)}" ng-click="select('canceled', 1)"><a ng-href="#/seller/canceled">Cancelled</a></li>
 </ul>
 <form class="col-xs-12 bids" ng-controller="BidDeleteCtrl">
   <div class="col-sm-10 col-sm-offset-1 block-separated inverse">

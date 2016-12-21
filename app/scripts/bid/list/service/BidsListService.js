@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('BidsListService',
-    ['$http', 'API',
-      function ($http, API) {
+    ['$http', 'API', 'AuthenticationService',
+      function ($http, API, AuthenticationService) {
 
         var instance = {};
 
@@ -49,11 +49,18 @@ angular.module('shokenWebApp')
 
         instance.delete = function (idsToDelete, successCallback, errorCallback) {
           //  TODO: delete using remote service
-
           console.log("deleting " + JSON.stringify(idsToDelete));
 
-          if(successCallback) {
-            successCallback();
+          for (var id of idsToDelete) {
+            console.log(id);
+            var requestUrl = `${API.bids}/${id}`;
+            $http
+              .delete(requestUrl, {
+                "headers": {
+                  "authorization": AuthenticationService.getAuthToken()
+                }
+              })
+              .then(successCallback, errorCallback);
           }
         };
 
