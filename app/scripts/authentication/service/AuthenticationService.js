@@ -14,7 +14,7 @@ angular.module('shokenWebApp')
           return authToken;
         };
 
-        this.me = function () {
+        this.me = function (callback) {
           $http.get(
             API.me, {
               "headers": {
@@ -23,23 +23,27 @@ angular.module('shokenWebApp')
             })
             .then(
               function (response) {
-                debugger;
                 $rootScope.role = response.data ? response.data[0] : undefined;
+                if(callback) {
+                  callback();
+                }
               },
               function (response) {
-                debugger;
                 $rootScope.role = undefined;
+                if(callback) {
+                  callback();
+                }
               }
             );
         };
 
-        this.setSession = function (username, password) {
+        this.setSession = function (username, password, callback) {
           console.log("Session for user " + username + " was set.");
           authToken = username ? "Basic " + btoa(username + ":" + password) : "";
           $rootScope.logged = true;
           $localStorage.authToken = authToken;
 
-          this.me();
+          this.me(callback);
         };
 
         $rootScope.logout = function () {

@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('LoginService',
-    ['$http', 'API', 'AuthenticationService',
-      function ($http, API, AuthenticationService) {
+    ['$http', 'API', 'AuthenticationService', '$rootScope',
+      function ($http, API, AuthenticationService, $rootScope) {
 
         var instance = {};
         instance.login = function (username, password, successCallback, errorCallback) {
@@ -28,17 +28,19 @@ angular.module('shokenWebApp')
             })
             .then(
               function (response) {
-                // AuthenticationService.setSession(username, password);
-                // debugger;
-                // if (successCallback) {
-                //   successCallback();
-                // }
               },
               function (response) {
-                AuthenticationService.setSession(username, password);
-                if (errorCallback) {
-                  errorCallback(response.data, response.status);
-                }
+                AuthenticationService.setSession(username, password, function () {
+                  if($rootScope && $rootScope.role && $rootScope.role !== 'ANONYMUS') {
+                    if(successCallback) {
+                      successCallback(response);
+                    }
+                  } else {
+                    if (errorCallback) {
+                      errorCallback(response);
+                    }
+                  }
+                });
               })
         };
 
