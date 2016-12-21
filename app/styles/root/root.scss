@@ -222,4 +222,7 @@ form {
 
 .navbar-right {
   margin-right: 0;
+  &.navbar-nav:last-child {
+    margin-right: 0;
+  }
 }
