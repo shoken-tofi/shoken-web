@@ -94,7 +94,7 @@
           <h5>
             <span class="badge">{{bid.type}}</span>
           </h5>
-          <div class="col-xs-12 block-separated" data-ng-show="logged">
+          <div class="col-xs-12 block-separated" data-ng-show="bid.canBet">
             <p>
               <button class="btn btn-default btn-bet" ng-click="bet(bid.price.step, bid.price.value, bid.id)">
                 {{bid.price.value}}$

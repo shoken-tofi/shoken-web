@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('BidService',
-    ['$http', 'API', 'AuthenticationService', 'ngNotify',
-      function ($http, API, AuthenticationService, ngNotify) {
+    ['$http', 'API', 'AuthenticationService', 'ngNotify', '$rootScope', '$location',
+      function ($http, API, AuthenticationService, ngNotify, $rootScope, $location) {
 
         var instance = {};
 
@@ -26,6 +26,12 @@ angular.module('shokenWebApp')
         };
 
         instance.bet = function (bet, successCallback, errorCallback) {
+          if(!$rootScope.logged) {
+            ngNotify.set('Please, login or register to bet.');
+            $location.path("/login");
+            return;
+          }
+
           console.log(bet);
           $http.post(
             API.bet,

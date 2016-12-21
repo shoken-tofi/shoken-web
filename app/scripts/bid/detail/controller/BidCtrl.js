@@ -41,6 +41,7 @@ angular.module('shokenWebApp')
 
         var getBidCallback = function (response) {
           $scope.bidDetailed = response.data;
+          console.log($scope.bidDetailed);
 
           BetService.setBetManagement(
             $scope.bidDetailed.price.step,
