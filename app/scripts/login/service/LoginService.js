@@ -16,7 +16,8 @@ angular.module('shokenWebApp')
               "password": password
             }, {
               "headers": {
-                "Content-Type": 'application/x-www-form-urlencoded'
+                "Content-Type": 'application/x-www-form-urlencoded',
+                "Access-Control-Allow-Origin": '*'
               },
               "transformRequest": function (obj) {
                 var str = [];
