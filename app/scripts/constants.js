@@ -15,7 +15,8 @@ angular
     'users': backendUrl + '/users',
     'login': backendUrl + '/login',
     'upload': backendUrl + '/images/upload',
-    'me': backendUrl + '/users/me'
+    'me': backendUrl + '/users/me',
+    'bet': backendUrl + '/bets'
   })
   .constant('OPTIONS', {
     'typeOptions': ['bill', 'bond', 'share']

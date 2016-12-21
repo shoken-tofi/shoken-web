@@ -45,8 +45,7 @@ angular.module('shokenWebApp')
           BetService.setBetManagement(
             $scope.bidDetailed.price.step,
             $scope.bidDetailed.price.value,
-            $scope.bidDetailed.id,
-            333);
+            $scope.bidDetailed.id);
         };
 
         BidService.get(id, getBidCallback);

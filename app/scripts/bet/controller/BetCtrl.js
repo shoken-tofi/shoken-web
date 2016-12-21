@@ -11,9 +11,8 @@ angular.module('shokenWebApp')
 
         $scope.bet = BetService.getBet();
         $scope.betManagement = BetService.getBetManagement();
-
-        console.log($scope.bet);
-        console.log($scope.betManagement);
+        console.log("bet management in modal");
+        console.log($scope.betManagement)
 
         var up = function (up) {
           if(!up && $scope.betManagement.delta <= $scope.betManagement.step) {

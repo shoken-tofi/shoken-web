@@ -14,14 +14,13 @@ angular.module('shokenWebApp')
         console.log(bet);
         console.log(betManagement);
 
-        this.setBetManagement = function (step, priceValue, bidId, investorId) {
+        this.setBetManagement = function (step, priceValue, bidId) {
           betManagement.step = step;
           betManagement.delta = betManagement.step;
           betManagement.startPrice = priceValue;
 
           bet.value = betManagement.startPrice;
           bet.bidId = bidId;
-          bet.investorId = investorId;
         };
 
         this.getBetManagement = function () {

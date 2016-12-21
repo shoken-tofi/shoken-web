@@ -64,13 +64,16 @@ angular.module('shokenWebApp')
         };
 
         $scope.bet = function (step, value, bidId) {
-          BetService.setBetManagement(step, value, bidId, 333);
+          console.log("betManagement");
+          console.log(bidId);
+          BetService.setBetManagement(step, value, bidId);
 
           ModalService.show({
               size: 'sm',
               templateUrl: 'views/bid/list/modal/bet-modal.html',
               controller: 'BetModalCtrl',
-              resolve: {}
+              resolve: {
+              }
             },
             function () {
               console.log('Modal dismissed at: ' + new Date());

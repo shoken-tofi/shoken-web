@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('BidService',
-    ['$http', 'API',
-      function ($http, API) {
+    ['$http', 'API', 'AuthenticationService', 'ngNotify',
+      function ($http, API, AuthenticationService, ngNotify) {
 
         var instance = {};
 
@@ -26,12 +26,26 @@ angular.module('shokenWebApp')
         };
 
         instance.bet = function (bet, successCallback, errorCallback) {
-
-          // Call the service
-
-          if(successCallback) {
-            successCallback();
-          }
+          console.log(bet);
+          $http.post(
+            API.bet,
+            bet, {
+              "headers": {
+                "authorization": AuthenticationService.getAuthToken()
+              }
+            })
+            .then(function (response) {
+                ngNotify.set("Successful bet!");
+                if (successCallback) {
+                  successCallback(response);
+                }
+              },
+              function (response) {
+                ngNotify.set("Bet failed: " + (response.data ? response.data.message : ""), 'error');
+                if (errorCallback) {
+                  errorCallback(response);
+                }
+              });
         };
 
         return instance;
