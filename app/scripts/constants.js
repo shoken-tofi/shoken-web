@@ -14,7 +14,8 @@ angular
     'register': backendUrl + '/register',
     'users': backendUrl + '/users',
     'login': backendUrl + '/login',
-    'upload': backendUrl + '/images/upload'
+    'upload': backendUrl + '/images/upload',
+    'me': backendUrl + '/users/me'
   })
   .constant('OPTIONS', {
     'typeOptions': ['bill', 'bond', 'share']

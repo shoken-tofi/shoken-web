@@ -5,8 +5,8 @@
  */
 angular.module('shokenWebApp')
   .factory('RegistrationService',
-    ['$http', 'API', 'AuthenticationService',
-    function ($http, API, AuthenticationService) {
+    ['$http', 'API', 'AuthenticationService', '$rootScope',
+    function ($http, API, AuthenticationService, $rootScope) {
       var instance = {};
       instance.sign_up = function (username, email, password, successCallback, errorCallback) {
         $http.post(
@@ -16,7 +16,7 @@ angular.module('shokenWebApp')
             "password": password
           })
           .then(
-            function () {
+            function (response) {
               AuthenticationService.setSession(username, password);
 
               if (successCallback) {

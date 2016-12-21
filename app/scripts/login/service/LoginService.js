@@ -27,11 +27,11 @@ angular.module('shokenWebApp')
             })
             .then(
               function (response) {
-                AuthenticationService.setSession(username, password);
-                debugger;
-                if (successCallback) {
-                  successCallback();
-                }
+                // AuthenticationService.setSession(username, password);
+                // debugger;
+                // if (successCallback) {
+                //   successCallback();
+                // }
               },
               function (response) {
                 AuthenticationService.setSession(username, password);
@@ -40,26 +40,6 @@ angular.module('shokenWebApp')
                 }
               })
         };
-
-
-        //   $http({
-        //     method: 'POST',
-        //     url: API.login,
-        //     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        //     transformRequest: function (obj) {
-        //       var str = [];
-        //       for (var p in obj)
-        //         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-        //       return str.join("&");
-        //     },
-        //     data: {
-        //       "username": username,
-        //       "password": password
-        //     }
-        //   })
-        //     .success(successCallback)
-        //     .error(errorCallback);
-        // };
 
         return instance;
 

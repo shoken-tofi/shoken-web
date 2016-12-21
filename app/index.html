@@ -35,12 +35,12 @@
               <li data-ng-show="!logged" ng-class="{active: isActive('login')}" ng-click="select('login')"><a ng-href="#/login">Login</a></li>
               <li data-ng-show="!logged" ng-class="{active: isActive('sign_up')}" ng-click="select('sign_up')"><a ng-href="#/sign_up">Sign up</a></li>
               <li ng-class="{active: isActive('bids')}" ng-click="select('bids')"><a ng-href="#/bids">Bids</a></li>
-              <li data-ng-show="logged" ng-class="{active: isActive('users')}" ng-click="select('users')"><a ng-href="#/users">Users</a></li>
-              <li data-ng-show="logged" ng-class="{active: isActive('seller')}" ng-click="select('seller')"><a ng-href="#/seller">Seller's Profile</a></li>
-              <li data-ng-show="logged" ng-class="{active: isActive('investor')}" ng-click="select('investor')"><a ng-href="#/investor">Investor's Profile</a></li>
+              <li data-ng-show="logged && role && role === 'ADMIN'" ng-class="{active: isActive('users')}" ng-click="select('users')"><a ng-href="#/users">Users</a></li>
+              <li data-ng-show="logged && role && role === 'USER'" ng-class="{active: isActive('seller')}" ng-click="select('seller')"><a ng-href="#/seller">Seller's Profile</a></li>
+              <li data-ng-show="logged && role && role === 'USER'" ng-class="{active: isActive('investor')}" ng-click="select('investor')"><a ng-href="#/investor">Investor's Profile</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <button data-ng-show="logged" class="btn btn-link navbar-btn" ng-click="logout()">Logout</button>
+              <button data-ng-show="logged" class="btn btn-link navbar-btn" ng-click="logout()">{{role}}, Logout</button>
             </ul>
 
           </div>

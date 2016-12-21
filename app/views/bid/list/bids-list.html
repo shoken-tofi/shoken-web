@@ -75,10 +75,12 @@
     <div class="col-md-10">
       <form class="bids" ng-controller="BidDeleteCtrl">
         <div class="col-xs-12 block-separated inverse" data-ng-show="logged">
-          <a class="btn btn-sm btn-default pull-right" href="#/bid/new">New</a>
-          <button class="btn btn-sm btn-default pull-right" ng-show="!deleteMode" ng-click="deleteModeOn()">Delete mode</button>
-          <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
-          <input type="reset" class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="reset()">
+          <a class="btn btn-sm btn-default pull-right" href="#/bid/new" data-ng-show="logged && role && role === 'USER'">New</a>
+          <div data-ng-show="logged && role && role === 'ADMIN'">
+            <button class="btn btn-sm btn-default pull-right" ng-show="!deleteMode" ng-click="deleteModeOn()">Delete mode</button>
+            <button class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="delete()">Delete</button>
+            <input type="reset" class="btn btn-sm btn-default pull-right" ng-show="deleteMode" ng-click="reset()">
+          </div>
         </div>
         <div class="col-md-6 col-xs-12 bid" ng-repeat="bid in filteredBids">
           <div class="col-sm-1" ng-show="deleteMode">
