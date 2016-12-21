@@ -222,3 +222,11 @@
     }
   }
 }
+
+.bid,
+.bid-block {
+  .author {
+    color: $rgba-primary-2;
+    font-style: italic;
+  }
+}
